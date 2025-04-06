@@ -101,16 +101,18 @@ Google Tag Manager: Integração com campanhas e análises.
 Script WhatsApp Button: Contato rápido com pais/responsáveis.
 
 
-✅ Funcionalidades Futuras (Sugestões):
-Sistema de login com autenticação para transportadores e pais.
+✅ Funcionalidades Futuras Solicitadas por Eles (Sugestões):
+Sistema de login com autenticação para transportadores.
 
 Área administrativa para a associação gerenciar motoristas.
 
 Sistema de avaliação dos motoristas.
 
-Cartão identificador da associação para cada membro da equipe
+Cartão identificador da associação para cada membro da equipe(qrcode/Código identificador).
 
 Integração com banco de dados para armazenar anexos e formulários.
+
+Aréa administrativa para a associação inserir mais parcerias
 
 
 👨‍💻 Desenvolvedor:
