@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">   
+    <title>Tia Ju e Tio Sergio - ATEC</title>
+    <link rel="stylesheet" href="CSS/Andreia.css">
+    <link rel="icon" href="logo atec/logo 2 da tec(transparente).png">
+
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="Atec.html">
+                <img src="logo atec/logo 2 da tec(transparente).png" alt="Logo" class="nav-logo-img">
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="Atec.html"> Início</a></li>
+            <li><a href="Encontrarvan.html">Encontrar Transporte</a></li>
+            <li><a href="parcerias.html">Parcerias</a></li>
+            <li><a href="Associados.html">Associados</a></li>
+        </ul>
+    </nav>
+
+    <!-- Painel de administração -->
+    <div class="admin-panel">
+        <button id="adminToggle" class="admin-btn">Modo Administração</button>
+        <div class="edit-tools">
+            <button id="saveChanges" class="edit-btn save-btn">Salvar Alterações</button>
+            <button id="cancelEdit" class="edit-btn">Cancelar</button>
+        </div>
+    </div>
+
+    <!-- Botão de imagem para voltar -->
+    <div class="botao-volta">
+        <a href="Encontrarvan.html">
+            <img src="logo atec/botaovoltar.png" alt="Voltar" class="botao-voltar">
+        </a>
+    </div>
+
+    <div class="driver-container">
+        <div class="driver-header">
+            <img src="JueSergio.jpg" alt="ju e Sergio" class="driver-photo editable" data-field="photo">
+            <h1 class="editable" data-field="name" contenteditable="false">Tia Ju e Tio Sergio</h1>
+            <p class="driver-bio editable" data-field="bio" contenteditable="false">Motoristas escolares com mais de 10 anos de experiência, dedicados a proporcionar um transporte seguro e confortável para seus passageiros.</p>
+        </div>
+
+        <table class="driver-table">
+            <thead>
+                <tr>
+                    <th>Preço</th>
+                    <th>Escola</th>
+                    <th>Período</th>
+                    <th>Trecho</th>
+                    <th class="edit-only" style="display:none;">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-row="0">
+                    <td class="editable" data-field="price" contenteditable="false">R$ 150</td>
+                    <td class="editable" data-field="school" contenteditable="false">Colégio Desafio</td>
+                    <td class="editable" data-field="period" contenteditable="false">Tarde</td>
+                    <td class="editable" data-field="route" contenteditable="false">Ida</td>
+                    <td class="edit-only" style="display:none;">
+                        <button class="edit-btn row-edit">Editar</button>
+                        <button class="edit-btn delete-btn row-delete">Excluir</button>
+                    </td>
+                </tr>
+
+                <tr data-row="1">
+                    <td class="editable" data-field="price" contenteditable="false">     </td>
+                    <td class="editable" data-field="school" contenteditable="false">Colégio IPEC</td>
+                    <td class="editable" data-field="period" contenteditable="false">Tarde</td>
+                    <td class="editable" data-field="route" contenteditable="false">Volta</td>
+                    <td class="edit-only" style="display:none;">
+                        <button class="edit-btn row-edit">Editar</button>
+                        <button class="edit-btn delete-btn row-delete">Excluir</button>
+                    </td>
+                </tr>
+
+                <tr data-row="1">
+                    <td class="editable" data-field="price" contenteditable="false">     </td>
+                    <td class="editable" data-field="school" contenteditable="false">Colégio Natureza</td>
+                    <td class="editable" data-field="period" contenteditable="false">Integral</td>
+                    <td class="editable" data-field="route" contenteditable="false">  </td>
+                    <td class="edit-only" style="display:none;">
+                        <button class="edit-btn row-edit">Editar</button>
+                        <button class="edit-btn delete-btn row-delete">Excluir</button>
+                    </td>
+                </tr>
+
+                <tr data-row="1">
+                    <td class="editable" data-field="price" contenteditable="false">     </td>
+                    <td class="editable" data-field="school" contenteditable="false">Colégio Objetivo</td>
+                    <td class="editable" data-field="period" contenteditable="false">Integral</td>
+                    <td class="editable" data-field="route" contenteditable="false"> </td>
+                    <td class="edit-only" style="display:none;">
+                        <button class="edit-btn row-edit">Editar</button>
+                        <button class="edit-btn delete-btn row-delete">Excluir</button>
+                    </td>
+                </tr>
+
+                <tr data-row="1">
+                    <td class="editable" data-field="price" contenteditable="false">     </td>
+                    <td class="editable" data-field="school" contenteditable="false">Colégio Porto Feliz</td>
+                    <td class="editable" data-field="period" contenteditable="false">Integral</td>
+                    <td class="editable" data-field="route" contenteditable="false">   </td>
+                    <td class="edit-only" style="display:none;">
+                        <button class="edit-btn row-edit">Editar</button>
+                        <button class="edit-btn delete-btn row-delete">Excluir</button>
+                    </td>
+                </tr>
+
+                <tr data-row="1">
+                    <td class="editable" data-field="price" contenteditable="false">     </td>
+                    <td class="editable" data-field="school" contenteditable="false">Colégio Talento</td>
+                    <td class="editable" data-field="period" contenteditable="false">Integral</td>
+                    <td class="editable" data-field="route" contenteditable="false">   </td>
+                    <td class="edit-only" style="display:none;">
+                        <button class="edit-btn row-edit">Editar</button>
+                        <button class="edit-btn delete-btn row-delete">Excluir</button>
+                    </td>
+                </tr>
+
+
+            </tbody>
+        </table>
+        
+        <div class="edit-only" style="display:none; margin: 20px 0;">
+            <button id="addRoute" class="edit-btn">Adicionar Nova Rota</button>
+        </div>
+    
+        <div class="driver-contact">
+            <h2>Telefone</h2>
+            <p class="editable" data-field="phone" contenteditable="false">(11) 91907-1512</p>
+            <a href="tel:+551191907-1512" class="contact-button">Ligar</a>
+            <a href="tel:+551191907-1512" class="contact-button">Copiar número</a>
+        </div>
+    
+        <div class="driver-about">
+            <h2>Sobre mim</h2>
+            <p class="editable" data-field="about" contenteditable="false">Olá, somos Tia Ju e Tio Sergio! Trabalhamos como motorista escolar há mais de 10 anos, sempre priorizando a segurança e o bem-estar das crianças. Nossa van é equipada com todos os itens de segurança necessários, e eu adoramos criar um ambiente acolhedor para os pequenos durante o trajeto.</p>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="row">
+            <section class="row" id="about">
+                <div class="col-md-12 text-center pagination-centered">
+                    <ul class="list-inline col-md-4 col-lg-3 col-xs-12 col-sm-4">
+                        <li>
+                            <a href="quemsomos.html">QUEM SOMOS</a>
+                        </li>|
+                        <li><a href="#">NOSSO OBJETIVO</a><span class="hover-text">Segurança nos transportes</span></li>|
+                        <li><a href="#">DÚVIDAS?</a><span class="hover-text">11-940384489</span></li>|
+                        <li><a href="#">CONTATO</a><span class="hover-text">11-940384489</span></li>
+                    </ul>
+                    <ul class="list-inline col-md-2 col-lg-1 col-xs-3 col-sm-2">
+                        <li>
+                            <a href="Atec.html">
+                                <img src="logo atec/logo 2 da tec(transparente).png" alt="Logo" class="img-responsive" id="about-logo"/>                            </a>
+                        </li>
+                    </ul>
+                    <ul class="list-inline col-md-4 col-lg-3 col-xs-12 col-sm-4">
+                        <li>
+                            <a href="login.html">TRANSPORTISTA</a>                        </li>
+                        |
+                        <li>
+                            <a href="Encontrarvan.html">ENCONTRE</a>                        </li>
+                        |
+                        <li>
+                            <a href="loginanexo.html">UP-ANEXOS</a>                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="social">
+                <ul class=" col-md-5">
+                    <li>
+                        <p>Todos os direitos reservados (c) copyright <span itemprop="name">para ATEC</span></p>
+                    </li>
+                    <li>
+                        <p>Renan Pereira & Ryan Boriollo - Designers Gráfico</p>
+                    </li>
+                </ul>
+                <ul class="list-inline col-md-6">
+                    <li>
+                        <p> Nos acompanhe nas redes sociais:</p>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/atec_2024/" target="_blank">
+                            <i class="fa fa-instagram fa-1x footer-social-icon"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="     " target="_blank">
+                            <i class="fa fa-facebook fa-1x footer-social-icon"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="       " target="_blank">
+                            <i class="fa fa-twitter fa-1x footer-social-icon"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const adminToggle = document.getElementById('adminToggle');
+            const saveChanges = document.getElementById('saveChanges');
+            const cancelEdit = document.getElementById('cancelEdit');
+            const addRoute = document.getElementById('addRoute');
+            let isEditMode = false;
+            let originalData = {};
+
+            // Alternar modo de edição
+            adminToggle.addEventListener('click', function() {
+                isEditMode = !isEditMode;
+                document.body.classList.toggle('edit-mode', isEditMode);
+                document.querySelectorAll('.edit-only').forEach(el => {
+                    el.style.display = isEditMode ? 'block' : 'none';
+                });
+                adminToggle.textContent = isEditMode ? 'Sair do Modo Edição' : 'Modo Administração';
+                
+                // Ativar/desativar edição para todos os campos editáveis
+                document.querySelectorAll('.editable').forEach(el => {
+                    if (el.hasAttribute('contenteditable')) {
+                        el.contentEditable = isEditMode;
+                    }
+                });
+                
+                if (isEditMode) {
+                    // Salvar dados originais
+                    originalData = saveCurrentData();
+                }
+            });
+
+            // Salvar alterações
+            saveChanges.addEventListener('click', function() {
+                if (confirm('Deseja salvar as alterações?')) {
+                    // Aqui você implementaria a lógica para salvar no servidor
+                    alert('Alterações salvas com sucesso!');
+                    isEditMode = false;
+                    document.body.classList.remove('edit-mode');
+                    adminToggle.textContent = 'Modo Administração';
+                    document.querySelectorAll('.edit-only').forEach(el => {
+                        el.style.display = 'none';
+                    });
+                    // Desativar edição para todos os campos
+                    document.querySelectorAll('.editable').forEach(el => {
+                        if (el.hasAttribute('contenteditable')) {
+                            el.contentEditable = false;
+                        }
+                    });
+                }
+            });
+
+            // Cancelar edição
+            cancelEdit.addEventListener('click', function() {
+                if (confirm('Descartar todas as alterações?')) {
+                    restoreOriginalData(originalData);
+                    isEditMode = false;
+                    document.body.classList.remove('edit-mode');
+                    adminToggle.textContent = 'Modo Administração';
+                    document.querySelectorAll('.edit-only').forEach(el => {
+                        el.style.display = 'none';
+                    });
+                    // Desativar edição para todos os campos
+                    document.querySelectorAll('.editable').forEach(el => {
+                        if (el.hasAttribute('contenteditable')) {
+                            el.contentEditable = false;
+                        }
+                    });
+                }
+            });
+
+            // Adicionar nova rota
+            addRoute.addEventListener('click', function() {
+                const tbody = document.querySelector('.driver-table tbody');
+                const newRow = document.createElement('tr');
+                const rowId = Date.now(); // ID único para a nova linha
+                
+                newRow.setAttribute('data-row', rowId);
+                newRow.innerHTML = `
+                    <td class="editable" data-field="price" contenteditable="true"></td>
+                    <td class="editable" data-field="school" contenteditable="true">Nova Escola</td>
+                    <td class="editable" data-field="period" contenteditable="true">Período</td>
+                    <td class="editable" data-field="route" contenteditable="true">Trecho</td>
+                    <td class="edit-only">
+                        <button class="edit-btn row-edit">Editar</button>
+                        <button class="edit-btn delete-btn row-delete">Excluir</button>
+                    </td>
+                `;
+                
+                tbody.appendChild(newRow);
+                
+                // Adiciona eventos aos novos botões
+                addRowEvents(newRow);
+            });
+
+            // Adiciona eventos aos botões de linha
+            function addRowEvents(row) {
+                row.querySelector('.row-delete').addEventListener('click', function() {
+                    if (confirm('Tem certeza que deseja excluir esta rota?')) {
+                        row.remove();
+                    }
+                });
+            }
+
+            // Adiciona eventos a todas as linhas existentes
+            document.querySelectorAll('.driver-table tbody tr').forEach(row => {
+                addRowEvents(row);
+            });
+
+            // Salvar dados atuais
+            function saveCurrentData() {
+                const data = {
+                    name: document.querySelector('[data-field="name"]').textContent,
+                    bio: document.querySelector('[data-field="bio"]').textContent,
+                    phone: document.querySelector('[data-field="phone"]').textContent,
+                    about: document.querySelector('[data-field="about"]').textContent,
+                    photo: document.querySelector('[data-field="photo"]').src,
+                    routes: []
+                };
+
+                document.querySelectorAll('.driver-table tbody tr').forEach(row => {
+                    data.routes.push({
+                        price: row.querySelector('[data-field="price"]').textContent,
+                        school: row.querySelector('[data-field="school"]').textContent,
+                        period: row.querySelector('[data-field="period"]').textContent,
+                        route: row.querySelector('[data-field="route"]').textContent
+                    });
+                });
+
+                return data;
+            }
+
+            // Restaurar dados originais
+            function restoreOriginalData(data) {
+                document.querySelector('[data-field="name"]').textContent = data.name;
+                document.querySelector('[data-field="bio"]').textContent = data.bio;
+                document.querySelector('[data-field="phone"]').textContent = data.phone;
+                document.querySelector('[data-field="about"]').textContent = data.about;
+                document.querySelector('[data-field="photo"]').src = data.photo;
+
+                const tbody = document.querySelector('.driver-table tbody');
+                tbody.innerHTML = '';
+
+                data.routes.forEach((route, index) => {
+                    const row = document.createElement('tr');
+                    row.setAttribute('data-row', index);
+                    row.innerHTML = `
+                        <td class="editable" data-field="price" contenteditable="false">${route.price}</td>
+                        <td class="editable" data-field="school" contenteditable="false">${route.school}</td>
+                        <td class="editable" data-field="period" contenteditable="false">${route.period}</td>
+                        <td class="editable" data-field="route" contenteditable="false">${route.route}</td>
+                        <td class="edit-only">
+                            <button class="edit-btn row-edit">Editar</button>
+                            <button class="edit-btn delete-btn row-delete">Excluir</button>
+                        </td>
+                    `;
+                    tbody.appendChild(row);
+                    addRowEvents(row);
+                });
+            }
+
+            // Permitir upload de nova foto
+            document.querySelector('[data-field="photo"]').addEventListener('click', function(e) {
+                if (isEditMode) {
+                    e.preventDefault();
+                    const input = document.createElement('input');
+                    input.type = 'file';
+                    input.accept = 'image/*';
+                    
+                    input.onchange = function() {
+                        if (input.files && input.files[0]) {
+                            const reader = new FileReader();
+                            reader.onload = function(e) {
+                                document.querySelector('[data-field="photo"]').src = e.target.result;
+                            };
+                            reader.readAsDataURL(input.files[0]);
+                        }
+                    };
+                    
+                    input.click();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+<script>
+    window.rwbp = {
+        email: 'associacaoatec@outlook.com',
+        phone: '5511940384489',
+        message: 'Olá, pais e responsáveis de alunos! Como nós, da ATEC podemos te ajudar?',
+        lang: 'pt-BR'
+    }
+</script>
+<script defer async src='https://duz4dqsaqembt.cloudfront.net/client/whats.js'></script>

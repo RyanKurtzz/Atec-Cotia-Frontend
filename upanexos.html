@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transportador - ATEC</title>
+    <link rel="icon" type="image/png" href="logo atec/logo 2 da tec(transparente).png">
+    <link rel="stylesheet" href="CSS/upanexos.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="Atec.html">
+                <img src="logo atec/logo 2 da tec(transparente).png" alt="Logo" class="nav-logo-img">
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="Atec.html">Início</a></li>
+            <li><a href="Encontrarvan.html">Encontrar Transporte</a></li>
+            <li><a href="parcerias.html">Parcerias</a></li>
+            <li><a href="Associados.html">Associados</a></li>
+        </ul>
+    </nav>
+
+    <section class="container clearfix">
+        <div class="header-van"></div>
+        <div class="vans form col-md-8 col-xs-12 col-xs-offset-0 col-md-offset-2 content" id="signup-van">
+            
+            <form id="upload-form" enctype="multipart/form-data" method="post">
+                <div style="display:none;">
+                    <input type="hidden" name="_method" value="POST" />
+                </div>
+            
+                <fieldset id="last-fieldset">
+                    <div class="anexar">
+                        <h4>ANEXAR DOCUMENTOS</h4>
+                    </div>
+            
+                    <div class="input file">
+                        <label>CARTEIRA DE HABILITAÇÃO (CNH)</label>
+                        <div>
+                            <p id="file-habilitation"></p>
+                            <span class="btn btn-default btn-file">
+                                Anexar Arquivo
+                                <input type="file" name="cliente[vans][0][habilitation_file]" id="cliente-vans-0-habilitation-file" onchange="updateFileName()">
+                            </span>
+                            <span id="error-habilitation" class="error-message" style="color: red; display: none;">Insira o arquivo</span>
+                        </div>
+                    </div>
+            
+                    <div class="input file">
+                        <label>LICENÇAS EXIGIDAS PELA LEGISLAÇÃO LOCAL</label>
+                        <div>
+                            <p id="file-stp"></p>
+                            <span class="btn btn-default btn-file">
+                                Anexar Arquivo
+                                <input type="file" name="cliente[vans][0][stp_getax_file]" id="cliente-vans-0-stp-getax-file" onchange="updateFileName()">
+                            </span>
+                            <span id="error-stp" class="error-message" style="color: red; display: none;">Insira o arquivo</span>
+                        </div>
+                    </div>
+            
+                    <div class="input file">
+                        <label>APÓLICE DE SEGUROS</label>
+                        <div>
+                            <p id="file-seguro"></p>
+                            <span class="btn btn-default btn-file">
+                                Anexar Arquivo
+                                <input type="file" name="cliente[vans][0][seguro_file]" id="cliente-vans-0-seguro-file" onchange="updateFileName()">
+                            </span>
+                            <span id="error-seguro" class="error-message" style="color: red; display: none;">Insira o arquivo</span>
+                        </div>
+                    </div>
+            
+                    <div class="input file">
+                        <label>DADOS DO FORMULÁRIO PREENCHIDOS</label>
+                        <div>
+                            <p id="file-dados"></p>
+                            <span class="btn btn-default btn-file">
+                                Anexar Arquivo
+                                <input type="file" name="cliente[vans][0][dados_file]" id="cliente-vans-0-dados-file" onchange="updateFileName()">
+                            </span>
+                            <span id="error-dados" class="error-message" style="color: red; display: none;">Insira o arquivo</span>
+                        </div>
+                    </div>
+            
+                    <button type="submit" id="submit-form">ENVIAR</button>
+                </fieldset>
+            
+                <div id="file-preview" style="display: none;">
+                    <h3>Arquivos Anexados</h3>
+                    <div id="preview-container"></div>
+                    <button id="download-zip" style="display:none;">Baixar Arquivos (.zip)</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="row">
+    
+            <section class="row" id="about">
+                <div class="col-md-12 text-center pagination-centered">
+                    <ul class="list-inline col-md-4 col-lg-3 col-xs-12 col-sm-4">
+                      <li>
+                        <a href="quemsomos.html">QUEM SOMOS</a>
+                    </li>|
+                    <li><a href="#">NOSSO OBJETIVO</a><span class="hover-text">Segurança nos transportes</span></li>|
+                    <li><a href="#">DÚVIDAS?</a><span class="hover-text">11-940384489</span></li>|
+                    <li><a href="#">CONTATO</a><span class="hover-text">11-940384489</span></li>
+                    </ul>
+                    <ul class="list-inline col-md-2 col-lg-1 col-xs-3 col-sm-2">
+                        <li>
+                            <a href="Atec.html">
+                                <img src="logo atec/logo 2 da tec(transparente).png" alt="Logo" class="img-responsive" id="about-logo"/>                            </a>
+                        </li>
+                    </ul>
+                    <ul class="list-inline col-md-4 col-lg-3 col-xs-12 col-sm-4">
+                        <li>
+                            <a href="login.html">TRANSPORTISTA</a>                        </li>
+                        |
+                        <li>
+                            <a href="Encontrarvan.html">ENCONTRE</a>                        </li>
+                        |
+                        <li>
+                          <a href="loginanexo.html">UP-ANEXOS</a></a>                        </li>
+                    </ul>
+                </div>
+            </section>
+    
+            <section id="social">
+                <ul class=" col-md-5">
+                    <li>
+                        <p>Todos os direitos reservados (c) copyright <span itemprop="name">para ATEC</span></p>
+                    </li>
+                    <li>
+                        <p>Renan Pereira & Ryan Boriollo - Designers Gráfico</p>
+                    </li>
+                </ul>
+                <ul class="list-inline col-md-6">
+                    <li>
+                        <p> Nos acompanhe nas redes sociais:</p>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/atec_2024/" target="_blank">
+                            <i class="fa fa-instagram fa-1x footer-social-icon"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="        " target="_blank">
+                            <i class="fa fa-facebook fa-1x footer-social-icon"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="      " target="_blank">
+                            <i class="fa fa-twitter fa-1x footer-social-icon"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const submitButton = document.getElementById("submit-form");
+
+            submitButton.addEventListener("click", function (event) {
+                event.preventDefault();
+
+                // Função para verificar se um arquivo foi anexado
+                function checkFile(inputId, errorId) {
+                    const fileInput = document.getElementById(inputId);
+                    const errorMessage = document.getElementById(errorId);
+                    if (fileInput.files.length === 0) {
+                        errorMessage.style.display = 'inline';
+                        return false;
+                    } else {
+                        errorMessage.style.display = 'none';
+                        return true;
+                    }
+                }
+
+                // Verificar todos os campos de arquivo
+                const habilitationValid = checkFile('cliente-vans-0-habilitation-file', 'error-habilitation');
+                const stpValid = checkFile('cliente-vans-0-stp-getax-file', 'error-stp');
+                const seguroValid = checkFile('cliente-vans-0-seguro-file', 'error-seguro');
+                const dadosValid = checkFile('cliente-vans-0-dados-file', 'error-dados');
+
+                // Se todos os campos estiverem preenchidos, prosseguir com o envio
+                if (habilitationValid && stpValid && seguroValid && dadosValid) {
+                    const previewContainer = document.getElementById('preview-container');
+                    previewContainer.innerHTML = ''; // Limpa o conteúdo anterior
+
+                    // Função para exibir a imagem ou ícone do arquivo
+                    function displayFile(inputId, label) {
+                        const fileInput = document.getElementById(inputId);
+                        if (fileInput && fileInput.files.length > 0) {
+                            const file = fileInput.files[0];
+                            const fileURL = URL.createObjectURL(file);
+                            const fileType = file.type.split('/')[0];
+
+                            let previewHTML = '';
+                            if (fileType === 'image') {
+                                previewHTML = `
+                                    <div class="file-preview-item">
+                                        <a href="${fileURL}" target="_blank">
+                                            <img src="${fileURL}" alt="${file.name}" style="max-width: 100px; max-height: 100px;">
+                                        </a>
+                                        <p>${file.name}</p>
+                                    </div>
+                                `;
+                            } else {
+                                previewHTML = `
+                                    <div class="file-preview-item">
+                                        <a href="${fileURL}" target="_blank">
+                                            <i class="fa fa-file-o fa-3x"></i>
+                                        </a>
+                                        <p>${file.name}</p>
+                                    </div>
+                                `;
+                            }
+
+                            previewContainer.innerHTML += previewHTML;
+                        }
+                    }
+
+                    // Exibir cada arquivo anexado
+                    displayFile('cliente-vans-0-habilitation-file', 'Carteira de Habilitação');
+                    displayFile('cliente-vans-0-stp-getax-file', 'Licenças Exigidas pela Legislação Local');
+                    displayFile('cliente-vans-0-seguro-file', 'Apólice de Seguros');
+                    displayFile('cliente-vans-0-dados-file', 'Dados do Formulário Preenchidos');
+
+                    // Exibir a seção de preview
+                    document.getElementById('file-preview').style.display = 'block';
+
+                    // Criar um arquivo .zip com os arquivos anexados
+                    const zip = new JSZip();
+
+                    // Adicionar os arquivos ao arquivo zip
+                    function addToZip(inputId) {
+                        const fileInput = document.getElementById(inputId);
+                        if (fileInput && fileInput.files.length > 0) {
+                            const file = fileInput.files[0];
+                            zip.file(file.name, file);
+                        }
+                    }
+
+                    addToZip('cliente-vans-0-habilitation-file');
+                    addToZip('cliente-vans-0-stp-getax-file');
+                    addToZip('cliente-vans-0-seguro-file');
+                    addToZip('cliente-vans-0-dados-file');
+
+                    // Gerar o arquivo zip e criar o link para download
+                    zip.generateAsync({ type: "blob" }).then(function (content) {
+                        const downloadButton = document.getElementById('download-zip');
+                        downloadButton.style.display = 'inline-block'; // Exibir o botão
+                        downloadButton.addEventListener('click', function () {
+                            const url = URL.createObjectURL(content);
+                            const a = document.createElement('a');
+                            a.href = url;
+                            a.download = 'arquivoscondutor.zip'; // Nome do arquivo zip
+                            a.click();
+                        });
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
+
+<script>
+    window.rwbp = {
+        email: 'associacaoatec@outlook.com',
+        phone: '5511940384489',
+        message: 'Olá, pais e responsáveis de alunos! Como nós, da ATEC podemos te ajudar?',
+        lang: 'pt-BR'
+    }
+</script>
+<script defer async src='https://duz4dqsaqembt.cloudfront.net/client/whats.js'></script>
+
+
