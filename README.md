@@ -81,7 +81,7 @@ Tag do Google para métricas
 
 🛠️ Tecnologias Utilizadas
 🌐 Front-End
-HTML5: Estrutura das páginas.
+HTML5: Estrutura das páginas.(grande parte do javascript está dentro dos códigos desse arquivo)
 
 CSS3: Estilização (arquivo externo: CSS/atec.css).
 
