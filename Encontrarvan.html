@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transportadores Disponíveis - ATEC</title>
+    <link rel="stylesheet" href="CSS/Encontrarvan.css">
+    <link rel="icon" type="image/png" href="logo atec/logo 2 da tec(transparente).png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <style>
+        /* Estilos do Painel de Administração */
+
+       /* Botão de Admin e seu container */
+    #adminPanel {
+        display: none;
+        position: fixed;
+        top: 50px;      /* Posiciona no topo */
+        right: 20px;    /* Posiciona à direita */
+        z-index: 1000;
+    }
+        .admin-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .admin-actions {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .admin-action-btn {
+            background-color: #2196F3;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px 0;
+            width: 100%;
+        }
+
+        /* Modal de Edição */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .close-modal {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input[type="text"],
+        .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .delete-btn {
+            background-color: #f44336;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .route-item {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .remove-route {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+        }
+
+        /* Estilo para modo admin */
+        body.admin-mode .driver {
+            cursor: pointer;
+            position: relative;
+        }
+        
+        body.admin-mode .driver::after {
+            content: '✏️';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 5px;
+            border-radius: 50%;
+        }
+
+        /* Estilos do Login Admin */
+        #adminLoginModal {
+            display: none;
+            position: fixed;
+            z-index: 1002;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+        }
+
+        .login-container h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .login-form-group {
+            margin-bottom: 20px;
+        }
+
+        .login-form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .login-form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .login-btn:hover {
+            background-color: #45a049;
+        }
+
+        .error-message {
+            color: #f44336;
+            text-align: center;
+            margin-top: 15px;
+            display: none;
+        }
+
+        .close-login-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+       
+    /* Modal de Edição - Adicione estas regras */
+    .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto;
+        padding: 20px;
+        border-radius: 8px;
+        width: 80%;
+        max-width: 600px;
+        max-height: 80vh; /* Altura máxima de 80% da viewport */
+        overflow-y: auto; /* Habilita scroll vertical quando necessário */
+    }
+
+    /* Container de rotas com scroll */
+    #routesContainer {
+        max-height: 300px; /* Altura máxima antes de aparecer scroll */
+        overflow-y: auto; /* Habilita scroll vertical */
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-radius: 4px;
+    }
+
+    /* Personalização do scroll */
+    #routesContainer::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    #routesContainer::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 4px;
+    }
+
+    #routesContainer::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 4px;
+    }
+
+    #routesContainer::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="Atec.html">
+                <img src="logo atec/logo 2 da tec(transparente).png" alt="Logo" class="nav-logo-img">
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="Atec.html"> Início</a></li>
+            <li><a href="Encontrarvan.html">Encontrar Transporte</a></li>
+            <li><a href="parcerias.html">Parcerias</a></li>
+            <li><a href="Associados.html">Associados</a></li>
+            <li><a href="#" id="adminAccessBtn">Área de Admin</a></li>
+        </ul>
+    </nav>
+
+    <!-- Modal de Login Admin -->
+    <div id="adminLoginModal">
+        <div class="login-container">
+            <span class="close-login-modal">&times;</span>
+            <h2>Login Administrativo</h2>
+            <form id="adminLoginForm">
+                <div class="login-form-group">
+                    <label for="loginEmail">E-mail:</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="login-form-group">
+                    <label for="loginPassword">Senha:</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="login-btn">Entrar</button>
+                <div id="loginErrorMessage" class="error-message">E-mail ou senha incorretos</div>
+            </form>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>TRANSPORTADORES DISPONÍVEIS</h1>
+        
+        <!-- Filtros -->
+        <div class="filters">
+            <select id="filter-driver">
+                <option value="">Todos os Motoristas</option>
+                <option value="Andreia">Tia Andreia</option>
+                <option value="Daya">Tia Daya</option>
+                <option value="Eduardo">Tio Eduardo</option>
+                <option value="Haroldo">Tio Haroldo</option>
+                <option value="JuSergio">Tia Ju & Tio Sergio</option>
+                <option value="Klecio">Tio Klécio</option>
+                <option value="KellyAle">Tia Kelly & Tio Alê</option>
+            </select>
+
+            <select id="filter-price">
+                <option value="">Preço</option>
+                <option value="100">Até R$ 100</option>
+                <option value="200">Até R$ 200</option>
+                <option value="300">Até R$ 300</option>
+                <option value="400">Até R$ 400</option>
+                <option value="500">Até R$ 500</option>
+            </select>
+
+            <select id="filter-school">
+                <option value="">Escola</option>
+                <option value="Colégio Desafio">Colégio Desafio</option>
+                <option value="Colégio Porto Feliz">Colégio Porto Feliz</option>
+                <option value="Planeta Terra">Planeta Terra</option>
+                <option value="Colégio Conexão">Colégio Conexão</option>
+                <option value="Colégio Objetivo">Colégio Objetivo</option>
+                <option value="Colégio Natureza">Colégio Natureza</option>
+                <option value="Escola Zacarias">Escola Zacarias</option>
+                <option value="Escola Batista">Escola Batista</option>
+                <option value="Escola Idomineu">Escola Idomineu</option>
+                <option value="Colégio Madre Iva">Colégio Madre Iva</option>
+                <option value="Colégio Coração de Jesus">Colégio Coração de Jesus</option>
+                <option value="Colégio IPEC">Colégio IPEC</option>
+                <option value="Colégio Talento">Colégio Talento</option>
+            </select>
+
+            <select id="filter-period">
+                <option value="">Período</option>
+                <option value="Manhã">Manhã</option>
+                <option value="Tarde">Tarde</option>
+                <option value="Noite">Noite</option>
+                <option value="Integral">Integral</option>
+            </select>
+
+            <select id="filter-city">
+                <option value="">Trecho</option>
+                <option value="Ida">Ida</option>
+                <option value="Volta">Volta</option>
+                <option value="Ida e Volta">Ida e Volta</option>
+            </select>
+        </div>
+
+        <!-- Lista de Motoristas e Vans -->
+        <div class="driver-list">
+            <!-- Motorista Andreia atendendo Escola A e Escola C -->
+            <a href="Andreia.html" class="driver" data-driver="Andreia" data-price="150" data-school="Colégio Desafio,Planeta Terra,Colégio Porto Feliz" data-period="Manhã, Tarde" data-idaevolta="Ida e Volta">
+                <div class="driver-info">
+                    <img src="joao.jpg" alt="Andreia">
+                    <h2>Tia Andreia</h2>
+                </div>
+            </a>
+
+            <!-- Motorista Daya -->
+            <a href="Daya.html" class="driver" data-driver="Daya" data-price="200" data-school="Colégio Madre Iva, Colégio Coração de Jesus" data-period="Tarde" data-idaevolta="Manhã">
+                <div class="driver-info">
+                    <img src="maria.jpg" alt="Daya">
+                    <h2>Tia Daya</h2>
+                </div>
+            </a>
+
+            <!-- Motorista Eduardo atendendo duas escolas -->
+            <a href="Eduardo.html" class="driver" data-driver="Eduardo" data-price="200" data-school="Colégio Talento,Colégio Objetivo,Colégio Desafio,Colégio Porto Feliz" data-period="Tarde" data-idaevolta="Manhã">
+                <div class="driver-info">
+                    <img src="maria.jpg" alt="Eduardo">
+                    <h2>Tio Eduardo</h2>
+                </div>
+            </a>
+
+            <!-- Outros motoristas -->
+            <a href="Haroldo.html" class="driver" data-driver="Haroldo" data-price="200" data-school="Colégio Desafio,Colégio Porto Feliz,Colégio Conexão,Colégio Objetivo,Colégio Natureza" data-period="Tarde" data-idaevolta="Manhã">
+                <div class="driver-info">
+                    <img src="maria.jpg" alt="Haroldo">
+                    <h2>Tio Haroldo</h2>
+                </div>
+            </a>
+
+            <a href="JueSergio.html" class="driver" data-driver="JueSergio" data-price="200" data-school="Colégio Natureza,Colégio Desafio,Colégio Objetivo,Colégio Porto Feliz,Colégio Talento,Colégio IPEC" data-period="Tarde" data-idaevolta="Manhã">
+                <div class="driver-info">
+                    <img src="maria.jpg" alt="JueSergio">
+                    <h2>Tia Ju & Tio Sergio</h2>
+                </div>
+            </a>
+
+            <a href="KellyeAle.html" class="driver" data-driver="KellyAle" data-price="200" data-school="Escola Zacarias,Escola Batista,Escola Idomineu,Colégio Objetivo" data-period="Tarde" data-idaevolta="Manhã">
+                <div class="driver-info">
+                    <img src="maria.jpg" alt="KellyeAle">
+                    <h2>Tia Kelly & Tio Alê</h2>
+                </div>
+            </a>
+
+            <a href="Klecio.html" class="driver" data-driver="Klecio" data-price="200" data-school="Colégio Desafio,Colégio Objetivo,Colégio Porto Feliz" data-period="Tarde" data-idaevolta="Manhã">
+                <div class="driver-info">
+                    <img src="maria.jpg" alt="Klecio">
+                    <h2>Tio Klécio</h2>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Botão de Admin (só aparece para usuários logados) -->
+    <div id="adminPanel" style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 1000;">
+        <button id="adminToggleBtn" class="admin-btn">Modo Administração</button>
+        <div class="admin-actions">
+            <button id="addDriver" class="admin-action-btn">+ Adicionar Motorista</button>
+        </div>
+    </div>
+
+    <!-- Modal para edição -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Editar Motorista</h2>
+            <form id="driverForm">
+                <input type="hidden" id="driverId">
+                <div class="form-group">
+                    <label for="editName">Nome:</label>
+                    <input type="text" id="editName" required>
+                </div>
+                <div class="form-group">
+                    <label for="editPhoto">Foto:</label>
+                    <input type="file" id="editPhoto" accept="image/*">
+                    <img id="photoPreview" src="" alt="Preview" style="max-width: 100px; display: none;">
+                </div>
+                <div class="form-group">
+                    <label>Rotas/Escolas:</label>
+                    <div id="routesContainer">
+                        <!-- Rotas serão adicionadas aqui dinamicamente -->
+                    </div>
+                    <button type="button" id="addRouteBtn">+ Adicionar Rota</button>
+                </div>
+                <button type="submit">Salvar Alterações</button>
+                <button type="button" id="deleteDriverBtn" class="delete-btn">Excluir Motorista</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="row">
+            <section class="row" id="about">
+                <div class="col-md-12 text-center pagination-centered">
+                    <ul class="list-inline col-md-4 col-lg-3 col-xs-12 col-sm-4">
+                        <li>
+                            <a href="quemsomos.html">QUEM SOMOS</a>
+                        </li>|
+
+                        <li><a href="#">NOSSO OBJETIVO</a><span class="hover-text">Segurança nos transportes</span></li>|
+                        <li><a href="#">DÚVIDAS?</a><span class="hover-text">11-940384489</span></li>|
+                        <li><a href="#">CONTATO</a><span class="hover-text">11-940384489</span></li>
+                    </ul>
+                    <ul class="list-inline col-md-2 col-lg-1 col-xs-3 col-sm-2">
+                        <li>
+                            <a href="Atec.html">
+                                <img src="logo atec/logo 2 da tec(transparente).png" alt="Logo" class="img-responsive" id="about-logo"/>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="list-inline col-md-4 col-lg-3 col-xs-12 col-sm-4">
+                        <li>
+                            <a href="login.html">TRANSPORTISTA</a>
+                        </li>
+                        |
+                        <li>
+                            <a href="Encontrarvan.html">ENCONTRE</a>
+                        </li>
+                        |
+                        <li>
+                            <a href="loginanexo.html">UP-ANEXOS</a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="social">
+                <ul class="col-md-5">
+                    <li>
+                        <p>Todos os direitos reservados (c) copyright <span itemprop="name">para ATEC</span></p>
+                    </li>
+                    <li>
+                        <p>Renan Pereira & Ryan Boriollo - Designers Gráfico</p>
+                    </li>
+                </ul>
+                <ul class="list-inline col-md-6">
+                    <li>
+                        <p> Nos acompanhe nas redes sociais:</p>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/atec_2024/" target="_blank">
+                            <i class="fa fa-instagram fa-1x footer-social-icon"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">
+                            <i class="fa fa-facebook fa-1x footer-social-icon"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">
+                            <i class="fa fa-twitter fa-1x footer-social-icon"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </footer>
+
+    <script src="js/Encontrarvan.js"></script>
+
+    <script>
+        // Sistema de Administração
+        document.addEventListener('DOMContentLoaded', function() {
+            // Credenciais de administrador (em produção, use um sistema seguro com backend)
+            const ADMIN_CREDENTIALS = {
+                email: "admin@atec.com",
+                password: "admin123"
+            };
+
+            // Elementos do DOM
+            const adminPanel = document.getElementById('adminPanel');
+            const adminToggleBtn = document.getElementById('adminToggleBtn');
+            const addDriverBtn = document.getElementById('addDriver');
+            const editModal = document.getElementById('editModal');
+            const closeModal = document.querySelector('.close-modal');
+            const driverForm = document.getElementById('driverForm');
+            const routesContainer = document.getElementById('routesContainer');
+            const addRouteBtn = document.getElementById('addRouteBtn');
+            const deleteDriverBtn = document.getElementById('deleteDriverBtn');
+            const adminAccessBtn = document.getElementById('adminAccessBtn');
+            const adminLoginModal = document.getElementById('adminLoginModal');
+            const adminLoginForm = document.getElementById('adminLoginForm');
+            const loginErrorMessage = document.getElementById('loginErrorMessage');
+            const closeLoginModal = document.querySelector('.close-login-modal');
+            
+            // Verificar se o usuário é admin
+            const isAdmin = localStorage.getItem('adminLoggedIn') === 'true';
+            
+            // Configurar link de admin/login/logout
+            if (isAdmin) {
+                adminPanel.style.display = 'block';
+                adminAccessBtn.textContent = 'Sair';
+            } else {
+                adminPanel.style.display = 'none';
+                adminAccessBtn.textContent = 'Área de Admin';
+            }
+            
+            // Evento para abrir modal de login ou fazer logout
+            adminAccessBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if (isAdmin) {
+                    // Fazer logout
+                    if(confirm('Deseja realmente sair do modo admin?')) {
+                        localStorage.removeItem('adminLoggedIn');
+                        adminPanel.style.display = 'none';
+                        document.body.classList.remove('admin-mode');
+                        adminAccessBtn.textContent = 'Área de Admin';
+                        window.location.reload();
+                    }
+                } else {
+                    // Abrir modal de login
+                    adminLoginModal.style.display = 'flex';
+                }
+            });
+            
+            // Fechar modal de login
+            function closeLogin() {
+                adminLoginModal.style.display = 'none';
+                loginErrorMessage.style.display = 'none';
+                adminLoginForm.reset();
+            }
+            
+            // Fechar modal de login quando clicar no X ou fora
+            adminLoginModal.addEventListener('click', function(e) {
+                if (e.target === adminLoginModal || e.target === closeLoginModal) {
+                    closeLogin();
+                }
+            });
+            
+            // Formulário de login
+            adminLoginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const email = document.getElementById('loginEmail').value;
+                const password = document.getElementById('loginPassword').value;
+                
+                if (email === ADMIN_CREDENTIALS.email && password === ADMIN_CREDENTIALS.password) {
+                    // Login válido
+                    localStorage.setItem('adminLoggedIn', 'true');
+                    closeLogin();
+                    adminPanel.style.display = 'block';
+                    adminAccessBtn.textContent = 'Sair';
+                    alert('Login realizado com sucesso!');
+                } else {
+                    // Login falhou
+                    loginErrorMessage.style.display = 'block';
+                }
+            });
+            
+            // Restante do código de administração (só executa se for admin)
+            if (isAdmin) {
+                // Ativar modo administração
+                adminToggleBtn.addEventListener('click', function() {
+                    document.body.classList.toggle('admin-mode');
+                    const adminActions = document.querySelector('.admin-actions');
+                    adminToggleBtn.textContent = document.body.classList.contains('admin-mode') ? 
+                        'Sair do Modo Admin' : 'Modo Administração';
+                    adminActions.style.display = document.body.classList.contains('admin-mode') ? 
+                        'block' : 'none';
+                });
+                
+                // Adicionar motorista
+                addDriverBtn.addEventListener('click', function() {
+                    openEditModal(null);
+                });
+                
+                // Fechar modal
+                closeModal.addEventListener('click', function() {
+                    editModal.style.display = 'none';
+                });
+                
+                // Adicionar rota
+                addRouteBtn.addEventListener('click', addRouteField);
+                
+                // Formulário de motorista
+                driverForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    saveDriver();
+                });
+                
+                // Excluir motorista
+                deleteDriverBtn.addEventListener('click', deleteDriver);
+                
+                // Tornar os motoristas editáveis
+                document.querySelectorAll('.driver').forEach(driver => {
+                    driver.addEventListener('click', function(e) {
+                        if (document.body.classList.contains('admin-mode')) {
+                            e.preventDefault();
+                            const driverId = this.getAttribute('data-driver');
+                            openEditModal(driverId);
+                        }
+                    });
+                });
+            }
+            
+            // Função para abrir modal de edição
+            function openEditModal(driverId) {
+                if (driverId) {
+                    // Editar motorista existente
+                    const driver = document.querySelector(`.driver[data-driver="${driverId}"]`);
+                    document.getElementById('driverId').value = driverId;
+                    document.getElementById('editName').value = driver.querySelector('h2').textContent;
+                    
+                    // Configurar preview da foto
+                    const photoPreview = document.getElementById('photoPreview');
+                    photoPreview.src = driver.querySelector('img').src;
+                    photoPreview.style.display = 'block';
+                    
+                    // Limpar rotas existentes
+                    routesContainer.innerHTML = '';
+                    
+                    // Adicionar rotas
+                    const schools = driver.getAttribute('data-school').split(',');
+                    const periods = driver.getAttribute('data-period').split(',');
+                    const routes = driver.getAttribute('data-idaevolta').split(',');
+                    const prices = driver.getAttribute('data-price').split(',');
+                    
+                    schools.forEach((school, index) => {
+                        addRouteField({
+                            school: school.trim(),
+                            period: periods[index] ? periods[index].trim() : '',
+                            route: routes[index] ? routes[index].trim() : '',
+                            price: prices[index] ? prices[index].trim() : ''
+                        });
+                    });
+                    
+                    deleteDriverBtn.style.display = 'inline-block';
+                } else {
+                    // Novo motorista
+                    document.getElementById('driverId').value = '';
+                    document.getElementById('editName').value = '';
+                    document.getElementById('photoPreview').style.display = 'none';
+                    routesContainer.innerHTML = '';
+                    addRouteField();
+                    deleteDriverBtn.style.display = 'none';
+                }
+                
+                editModal.style.display = 'block';
+            }
+            
+            // Função para adicionar campo de rota
+            function addRouteField(data = {}) {
+                const routeId = Date.now();
+                const routeHtml = `
+                    <div class="route-item" data-route-id="${routeId}">
+                        <div class="form-group">
+                            <label>Escola:</label>
+                            <input type="text" class="route-school" value="${data.school || ''}" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Período:</label>
+                            <select class="route-period">
+                                <option value="Manhã" ${data.period === 'Manhã' ? 'selected' : ''}>Manhã</option>
+                                <option value="Tarde" ${data.period === 'Tarde' ? 'selected' : ''}>Tarde</option>
+                                <option value="Noite" ${data.period === 'Noite' ? 'selected' : ''}>Noite</option>
+                                <option value="Integral" ${data.period === 'Integral' ? 'selected' : ''}>Integral</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Trecho:</label>
+                            <select class="route-route">
+                                <option value="Ida" ${data.route === 'Ida' ? 'selected' : ''}>Ida</option>
+                                <option value="Volta" ${data.route === 'Volta' ? 'selected' : ''}>Volta</option>
+                                <option value="Ida e Volta" ${data.route === 'Ida e Volta' ? 'selected' : ''}>Ida e Volta</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Preço (R$):</label>
+                            <input type="text" class="route-price" value="${data.price || ''}">
+                        </div>
+                        <button type="button" class="remove-route">×</button>
+                    </div>
+                `;
+                
+                routesContainer.insertAdjacentHTML('beforeend', routeHtml);
+                
+                // Adicionar evento para remover rota
+                const routeItem = document.querySelector(`[data-route-id="${routeId}"]`);
+                routeItem.querySelector('.remove-route').addEventListener('click', function() {
+                    routeItem.remove();
+                });
+            }
+            
+            // Função para salvar motorista
+            function saveDriver() {
+                const driverId = document.getElementById('driverId').value;
+                const name = document.getElementById('editName').value;
+                const photoFile = document.getElementById('editPhoto').files[0];
+                
+                // Coletar rotas
+                const routes = [];
+                document.querySelectorAll('.route-item').forEach(route => {
+                    routes.push({
+                        school: route.querySelector('.route-school').value,
+                        period: route.querySelector('.route-period').value,
+                        route: route.querySelector('.route-route').value,
+                        price: route.querySelector('.route-price').value
+                    });
+                });
+                
+                // Simulação de salvamento (em produção, use fetch para API)
+                if (driverId) {
+                    // Atualizar motorista existente
+                    const driver = document.querySelector(`.driver[data-driver="${driverId}"]`);
+                    driver.querySelector('h2').textContent = name;
+                    
+                    // Atualizar foto se foi enviada
+                    if (photoFile) {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            driver.querySelector('img').src = e.target.result;
+                        };
+                        reader.readAsDataURL(photoFile);
+                    }
+                    
+                    // Atualizar atributos de dados
+                    driver.setAttribute('data-school', routes.map(r => r.school).join(','));
+                    driver.setAttribute('data-period', routes.map(r => r.period).join(','));
+                    driver.setAttribute('data-idaevolta', routes.map(r => r.route).join(','));
+                    driver.setAttribute('data-price', routes.map(r => r.price).join(','));
+                    
+                    alert('Motorista atualizado com sucesso!');
+                } else {
+                    // Criar novo motorista
+                    const driverList = document.querySelector('.driver-list');
+                    const driverId = name.replace(/\s+/g, '');
+                    let photoSrc = 'joao.jpg'; // Foto padrão
+                    
+                    if (photoFile) {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            photoSrc = e.target.result;
+                            createDriverElement();
+                        };
+                        reader.readAsDataURL(photoFile);
+                    } else {
+                        createDriverElement();
+                    }
+                    
+                    function createDriverElement() {
+                        const newDriverHtml = `
+                            <a href="${driverId}.html" class="driver" data-driver="${driverId}" 
+                               data-price="${routes.map(r => r.price).join(',')}" 
+                               data-school="${routes.map(r => r.school).join(',')}" 
+                               data-period="${routes.map(r => r.period).join(',')}" 
+                               data-idaevolta="${routes.map(r => r.route).join(',')}">
+                                <div class="driver-info">
+                                    <img src="${photoSrc}" alt="${name}">
+                                    <h2>${name}</h2>
+                                </div>
+                            </a>
+                        `;
+                        
+                        driverList.insertAdjacentHTML('beforeend', newDriverHtml);
+                        
+                        // Adicionar evento de clique para o novo motorista
+                        const newDriver = document.querySelector(`.driver[data-driver="${driverId}"]`);
+                        newDriver.addEventListener('click', function(e) {
+                            if (document.body.classList.contains('admin-mode')) {
+                                e.preventDefault();
+                                openEditModal(driverId);
+                            }
+                        });
+                        
+                        alert('Novo motorista adicionado com sucesso!');
+                    }
+                }
+                
+                editModal.style.display = 'none';
+                document.getElementById('driverForm').reset();
+            }
+            
+            // Função para excluir motorista
+            function deleteDriver() {
+                if (confirm('Tem certeza que deseja excluir este motorista?')) {
+                    const driverId = document.getElementById('driverId').value;
+                    const driver = document.querySelector(`.driver[data-driver="${driverId}"]`);
+                    
+                    if (driver) {
+                        driver.remove();
+                        alert('Motorista excluído com sucesso!');
+                        editModal.style.display = 'none';
+                    }
+                }
+            }
+            
+            // Configurar upload de foto
+            document.getElementById('editPhoto').addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const photoPreview = document.getElementById('photoPreview');
+                        photoPreview.src = e.target.result;
+                        photoPreview.style.display = 'block';
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        });
+
+        // Configuração do WhatsApp
+        window.rwbp = {
+            email: 'associacaoatec@outlook.com',
+            phone: '5511940384489',
+            message: 'Olá, pais e responsáveis de alunos! Como nós, da ATEC podemos te ajudar?',
+            lang: 'pt-BR'
+        }
+    </script>
+    <script defer async src='https://duz4dqsaqembt.cloudfront.net/client/whats.js'></script>
+</body>
+</html>

@@ -1,0 +1,347 @@
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #343a40;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/*navbar*/
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 100px; /* Ajuste o valor conforme necessário */
+    padding: 15px 20px 15px 40px; /* Aumente o padding à esquerda */
+    background:  #ececec;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+    height: 55px; /* Defina uma altura fixa para a navbar */
+    position: relative; /* Permite posicionar a logo de forma absoluta dentro da navbar */
+} 
+.navbar:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra mais intensa */
+} 
+.logo {
+    position: relative;
+    top: 30px; /* Ajuste o valor conforme necessário */
+    left: 12px; /* Ajuste o valor conforme necessário */
+}
+
+.logo img {
+    width: 150px; /* Ajuste o valor conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+    transition: transform 0.3s ease-in-out;
+}
+.logo img:hover {
+    transform: scale(1.1); /* Aumenta 10% ao passar o mouse */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+    transition: transform 0.3s ease-in-out;
+}
+.nav-links:hover {
+    transform: scale(1.1); /* Aumenta 10% ao passar o mouse */ 
+}
+.nav-links li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.nav-links a {
+    font-weight: bold;
+    color: #333;
+    transition: color 0.3s;
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    color: #cabd28;
+}
+
+.nav-button {
+    background: #cabd28;
+    color: #ffffff;
+    padding: 13px 17px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav-button:hover {
+    background: #d6c933;
+    transform: scale(1.1); /* Aumenta 10% ao passar o mouse */
+}
+
+
+/* Seção de destaque */
+.bg-azul {
+    background-color: #cabd28;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.bg-azul h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+.bg-azul .badge {
+    font-size: 1rem;
+    padding: 5px 10px;
+    margin-right: 5px;
+}
+
+.bg-azul p {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+.bg-azul svg {
+    fill: #000000;
+    margin-right: 10px;
+}
+
+.bg-azul a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.bg-azul a:hover {
+    text-decoration: underline;
+}
+
+
+.particular {
+background-color: forestgreen ;
+border-radius: 5px;
+}
+
+.municipal{
+    background-color: blue;
+    border-radius: 5px;
+}
+
+.estadual{
+background-color: #e0b500;
+border-radius: 5px;
+}
+
+.infantil{
+background-color: red ;
+border-radius: 5px;
+} 
+
+.fundamental{
+background-color: red;
+border-radius: 5px;
+}
+
+.medio{
+background-color: red;
+border-radius: 5px;
+
+}
+
+.localização{
+color: #000000;
+
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    background-color: #e9ecef;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.breadcrumb a {
+    color: #ffcc00;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+/* Conteúdo principal */
+main {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+main h2 {
+    color: #ffcc00;
+    margin-top: 20px;
+}
+
+main address {
+    font-style: normal;
+    margin: 20px 0;
+}
+
+main address p {
+    margin: 5px 0;
+}
+
+/* Estilização do botão */
+.botao-maps {
+    background-color: #cabd28; /* Cor de fundo */
+    color: #ffffff; /* Cor do texto */
+    border: none; /* Remove borda */
+    padding: 12px 20px; /* Espaçamento interno */
+    font-size: 16px; /* Tamanho da fonte */
+    font-weight: bold; /* Deixa o texto em negrito */
+    border-radius: 8px; /* Borda arredondada */
+    cursor: pointer; /* Mostra que é clicável */
+    transition: 0.3s; /* Efeito suave */
+}
+
+/* Efeito ao passar o mouse */
+.botao-maps:hover {
+    background-color: #e0b500; /* Cor mais escura */
+    transform: scale(1.05); /* Aumenta levemente o botão */
+}
+
+/* Botões */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #ffcc00;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    margin: 10px 0;
+}
+
+.btn:hover {
+    background-color: #c5c5c5;
+}
+
+.btn-primary {
+    background-color: #cabd28;
+}
+
+.btn-primary:hover {
+    background-color: #b1a416;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Footer */
+footer {
+    background-color: #222;
+    color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+footer h4 {
+    font-size: 1.6em;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+footer h5 {
+    font-size: 1.2em;
+    color: #bbb;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer ul li {
+    display: inline;
+    margin: 10px 10px;
+    position: relative;
+}
+
+footer ul li .hover-text {
+    position: absolute;
+    bottom: 25px; /* Ajusta a distância abaixo do link */
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 0.9em;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: none; /* Escondido por padrão */
+    white-space: nowrap;
+}
+
+footer ul li:hover .hover-text {
+    display: block; /* Aparece ao passar o mouse */
+}
+footer ul li a {
+    color: #fff;
+    font-size: 1em;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer ul li a:hover {
+    color: rgb(197, 197, 8);
+}
+
+footer #about-logo {
+    max-width: 100px;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+footer #about-logo:hover {
+    transform: scale(1.1); /* Aumenta 10% ao passar o mouse */
+}
+
+
+footer #social ul {
+    margin-top: 20px;
+}
+
+footer #social ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+footer #social ul li a {
+    color: #fff;
+    font-size: 1.5em;
+}
+
+footer #social ul li a:hover {
+    color: rgb(197, 197, 8);
+}

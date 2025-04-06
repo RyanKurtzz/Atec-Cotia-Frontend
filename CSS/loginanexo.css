@@ -1,0 +1,352 @@
+/* Estilos Gerais */
+/* Estilos Gerais */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #424242;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+
+/*navbar*/
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 100px; /* Ajuste o valor conforme necessário */
+    padding: 15px 20px 15px 40px; /* Aumente o padding à esquerda */
+    background:  #ececec;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+    height: 55px; /* Defina uma altura fixa para a navbar */
+    position: relative; /* Permite posicionar a logo de forma absoluta dentro da navbar */
+} 
+.navbar:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra mais intensa */
+} 
+.logo {
+    position: relative;
+    top: 30px; /* Ajuste o valor conforme necessário */
+    left: 12px; /* Ajuste o valor conforme necessário */
+}
+
+.logo img {
+    width: 150px; /* Ajuste o valor conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+    transition: transform 0.3s ease-in-out;
+}
+.logo img:hover {
+    transform: scale(1.1); /* Aumenta 10% ao passar o mouse */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+    transition: transform 0.3s ease-in-out;
+}
+.nav-links:hover {
+    transform: scale(1.1); /* Aumenta 10% ao passar o mouse */ 
+}
+.nav-links li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.nav-links a {
+    font-weight: bold;
+    color: #333;
+    transition: color 0.3s;
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    color: #cabd28;
+}
+
+.nav-button {
+    background: #cabd28;
+    color: #ffffff;
+    padding: 13px 17px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav-button:hover {
+    background: #d6c933;
+    transform: scale(1.1); /* Aumenta 10% ao passar o mouse */
+}
+
+.botao-voltar {
+    position: fixed;
+    top: 50%;
+    left: 10px; /* Ajuste conforme necessário */
+    transform: translateY(-50%);
+    z-index: 1000;
+    width: 65px; /* Tamanho padrão */
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.botao-voltar:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .botao-voltar {
+        width: 40px; /* Reduz o tamanho em telas menores */
+        left: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .botao-voltar {
+        width: 35px;
+        left: 3px;
+    }
+}
+.logo {
+    height: 150px;
+    width: 150px;
+}
+
+/* Login Section */
+.login-section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+/* Container do Formulário */
+.login-container {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 40px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+/* Título do Formulário */
+h1 {
+    font-size: 26px;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+.grupo{
+    color: #bbb;
+    font-weight: bold;
+}
+
+/* Campos de Entrada */
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    background-color: #333;
+    color: #fff;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
+    border-color: #ffcc00;
+    outline: none;
+}
+
+/* Botão de Login */
+.btn-login {
+    background-color: #ddb206;
+    padding: 14px;
+    font-size: 16px;
+    border-radius: 25px;
+    width: 100%;
+    transition: all 0.3s ease;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btn-login:hover {
+    background-color: #d4ab07;
+    transform: translateY(-5px);
+}
+
+/* Divider */
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+    color: #c7c4c4;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #cecccc;
+    margin: 0 10px;
+}
+
+/* Links extras */
+.extra-options {
+    margin-top: 15px;
+    text-align: left;
+    color: #bbb;
+    font-weight: bold;
+}
+
+.extra-options p {
+    color: #cecccc;
+    font-size: 13px;
+}
+
+.extra-options a:hover {
+    color: #ffcc00;
+}
+
+.Cadastre-se{
+    margin-top: 15px;
+    text-align: left;
+    color: #927605;
+    font-weight: bold;
+}
+
+.Cadastre-se a {
+    color: #927605;
+    font-size: 16px;
+}
+
+.Cadastre-se a:hover {
+    color: #ffcc00;
+}
+
+
+/* Footer */
+footer {
+    background-color: #222;
+    color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+footer h4 {
+    font-size: 1.6em;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+footer h5 {
+    font-size: 1.2em;
+    color: #bbb;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer ul li {
+    display: inline;
+    margin: 10px 10px;
+    position: relative;
+}
+
+footer ul li .hover-text {
+    position: absolute;
+    bottom: 25px; /* Ajusta a distância abaixo do link */
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 0.9em;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: none; /* Escondido por padrão */
+    white-space: nowrap;
+}
+
+footer ul li:hover .hover-text {
+    display: block; /* Aparece ao passar o mouse */
+}
+footer ul li a {
+    color: #fff;
+    font-size: 1em;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer ul li a:hover {
+    color: rgb(197, 197, 8);
+}
+
+footer #about-logo {
+    max-width: 100px;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+footer #about-logo:hover {
+    transform: scale(1.1); /* Aumenta 10% ao passar o mouse */
+}
+
+
+footer #social ul {
+    margin-top: 20px;
+}
+
+footer #social ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+footer #social ul li a {
+    color: #fff;
+    font-size: 1.5em;
+}
+
+footer #social ul li a:hover {
+    color: rgb(197, 197, 8);
+}
+
+#msgError {
+    text-align: center;
+    color: #ff0000;
+    background-color: #ffbbbb;
+    padding: 10px;
+    border-radius: 4px;
+    display: none;
+}

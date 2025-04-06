@@ -1,0 +1,874 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Transportador - ATEC  </title>
+    <link rel="icon" type="image/png" href="logo atec/logo 2 da tec(transparente).png">
+    <link rel="stylesheet" href="CSS/cadastroatualizado.css"/>  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    </head>
+    
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let currentStep = 0;
+            const fieldsets = document.querySelectorAll("form fieldset");
+            const nextButtons = document.querySelectorAll(".next-step");
+            const prevButtons = document.querySelectorAll(".prev-step");
+            const submitButton = document.querySelector("form button[type='submit']");
+    
+            // Esconder todos os fieldsets, exceto o primeiro
+            function showStep(index) {
+                fieldsets.forEach((fs, i) => {
+                    fs.style.display = i === index ? "block" : "none";
+                });
+            }
+    
+            // Validação de campos obrigatórios
+            function validateFields(fieldset) {
+                let isValid = true;
+                const inputs = fieldset.querySelectorAll("input[required], select[required]");
+    
+                inputs.forEach((input) => {
+                    if (!input.value.trim()) {
+                        input.style.border = "2px solid red";
+                        isValid = false;
+                    } else {
+                        input.style.border = "";
+                    }
+                });
+    
+                return isValid;
+            }
+    
+            // Avançar para o próximo passo
+            nextButtons.forEach((btn, index) => {
+                btn.addEventListener("click", function () {
+                    if (validateFields(fieldsets[currentStep])) {
+                        currentStep++;
+                        showStep(currentStep);
+                    } else {
+                        alert("Por favor, preencha todos os campos obrigatórios antes de avançar.");
+                    }
+                });
+            });
+    
+            // Voltar ao passo anterior
+            prevButtons.forEach((btn, index) => {
+                btn.addEventListener("click", function () {
+                    currentStep--;
+                    showStep(currentStep);
+                });
+            });
+    
+            // Mostrar apenas o primeiro passo ao carregar a página
+            showStep(currentStep);
+        });
+    </script>
+    
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="Atec.html">
+            <img src="logo atec/logo 2 da tec(transparente).png" alt="Logo" class="nav-logo-img">
+       </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="Atec.html"> Início</a></li>
+            <li><a href="Encontrarvan.html">Encontrar Transporte</a></li>
+            <li><a href="parcerias.html">Parcerias</a></li>
+            <li><a href="Associados.html">Associados</a></li>
+        </ul>
+    
+    </nav>
+
+
+    
+    <section class="container clearfix">
+                <!-- TODO: Corrigir problemas de responsividade -->
+<link rel="stylesheet" href="/css/Site/Vans/signup.css"/><div class="header-van"></div>
+<div class="vans form col-md-8 col-xs-12 col-xs-offset-0 col-md-offset-2 content" id="signup-van">
+    
+    
+    
+    <form enctype="multipart/form-data" method="post" accept-charset="utf-8" action="/vans/precadastro"><div style="display:none;"><input type="hidden" name="_method" value="POST"/></div>    <div class="col-md-4 active"></div>
+        <div class="Dadosvan">
+           
+        </div>
+        <div>
+           
+    </div>
+    <div class="col-md-4 ">
+        <div class="Dadoscondutor">
+            
+        </div>
+            
+    </div>
+    
+    
+      
+    <fieldset id="last-fieldset">
+<div class="dadosvan">
+    <h4> DADOS DA VAN</h4>
+</div>
+
+
+ <!-- Campo de Nome de Apresentação -->
+<div class="input text required">
+    <label for="cliente-vans-0-veiculo">NOME DE APRESENTAÇÃO</label>
+    <input type="text" name="Nome de Apresentação" placeholder="Tio Eduardo, Tia Maria" required="required" maxlength="45" id="cliente-vans-0-veiculo"/>
+</div>
+
+<!-- Campo de Marca -->
+ <div class="marca">
+<span class="label label-default required" id="marca-label">MARCA</span>
+<select name="Marca" id="cliente-vans-0-FABRICANTE">
+    <option value="">SELECIONE</option>
+    <option value="AGRALE">AGRALE</option>
+    <option value="CITROEN">CITROEN</option>
+    <option value="FIAT">FIAT</option>
+    <option value="FORD">FORD</option>
+    <option value="IVECO">IVECO</option>
+    <option value="JINBEI">JINBEI</option>
+    <option value="KIA">KIA</option>
+    <option value="MERCEDES-BENZ">MERCEDES-BENZ</option>
+    <option value="MARCOPOLO">MARCOPOLO</option>
+    <option value="PEUGEOT">PEUGEOT</option>
+    <option value="RENAULT">RENAULT</option>
+    <option value="VOLARE">VOLARE</option>
+    <option value="VOLVO">VOLVO</option>
+    <option value="VOLKSWAGEN">VOLKSWAGEN</option>
+    <option value="OUTRO">OUTRO</option>
+</select>
+</div>
+
+<!-- Campo de Modelo -->
+<div class="modelo">
+    <span class="label label-default required" id="modelo-label">MODELO</span>
+    <select name="Modelo" id="cliente-vans-0-MODELO" required="required">
+        <option value="">Selecione um modelo</option>
+        <!-- As opções serão preenchidas dinamicamente pelo JavaScript -->
+    </select>
+</div>
+
+<!-- Campo de Tipo de Teto -->
+ <div class="tipoteto">
+<span class="label label-default required" id="teto-label">TIPO TETO</span>
+<select name="Tipo de Tetp" id="cliente-vans-0-TETO">
+    <option value="">SELECIONE</option>
+    <option value="TETO ALTO">TETO ALTO</option>
+    <option value="TETO BAIXO">TETO BAIXO</option>
+</select>
+</div>
+
+<!-- Campo de Ano de Fabricação -->
+<div class="input text required">
+    <label for="cliente-vans-0-ano">ANO DE FABRICAÇÃO</label>
+    <input type="text" name="Ano de Fabricação" placeholder="2023" required="required" maxlength="9" id="cliente-vans-0-ano"/>
+</div>
+
+<!-- Campo de Quantidade de Lugares -->
+<div class="input number">
+    <label for="cliente-vans-0-capacidade">QUANTIDADE DE LUGARES</label>
+    <input type="number" name="Qauntidade de Lugares" placeholder="20" id="cliente-vans-0-capacidade"/>
+</div>
+
+<!-- Agrupamento dos campos de rádio -->
+<div class="radio-container">
+
+    <!-- Campo de Wi-Fi -->
+    <div class="radio-group">
+        <span class="label label-default">POSSUI WI-FI?</span>
+        <input type="hidden" name="Wifi" value=""/>
+        <label for="cliente-vans-0-wifi-0">
+            <input type="radio" name="Wifi" value="0" id="cliente-vans-0-wifi-0"> NÃO
+        </label>
+        <label for="cliente-vans-0-wifi-1">
+            <input type="radio" name="Wifi" value="1" id="cliente-vans-0-wifi-1"> SIM
+        </label>
+    </div>
+
+    <!-- Campo de TV -->
+    <div class="radio-group">
+        <span class="label label-default">POSSUI TV?</span>
+        <input type="hidden" name="TV" value=""/>
+        <label for="cliente-vans-0-tv-0">
+            <input type="radio" name="TV" value="0" id="cliente-vans-0-tv-0"> NÃO
+        </label>
+        <label for="cliente-vans-0-tv-1">
+            <input type="radio" name="TV" value="1" id="cliente-vans-0-tv-1"> SIM
+        </label>
+    </div>
+
+    <!-- Campo de Ar Condicionado -->
+    <div class="radio-group">
+        <span class="label label-default">POSSUI AR CONDICIONADO?</span>
+        <input type="hidden" name="Ar-condicionado" value=""/>
+        <label for="cliente-vans-0-ar-condicionado-0">
+            <input type="radio" name="Ar-condicionado" value="0" id="cliente-vans-0-ar-condicionado-0"> NÃO
+        </label>
+        <label for="cliente-vans-0-ar-condicionado-1">
+            <input type="radio" name="Ar-condicionado" value="1" id="cliente-vans-0-ar-condicionado-1"> SIM
+        </label>
+    </div>
+
+</div>
+
+
+<!-- Campo de Placa -->
+<div class="input text required">
+    <label for="cliente-vans-0-placa">PLACA</label>
+    <input type="text" name="Placa" placeholder="Digite a placa da sua van" maxlength="7" minlength="7" required="required" id="cliente-vans-0-placa"/>
+</div>
+<div id="placa-validation-message" class="validation-message"></div>
+
+<!-- Campo de Número da Licença -->
+<div class="input text">
+    <label for="cliente-vans-0-stp-getax">NÚMERO DA LICENÇA</label>
+    <input type="text" name="Número da Licença" placeholder="Número da licença/alvará de transporte escolar" maxlength="10" id="cliente-vans-0-stp-getax"/>
+</div>
+
+<!-- Campo de Data de Expiração da Vistoria -->
+ <div class="vistoria">
+<span class="label label-default">DATA DE EXPIRAÇÃO DA VISTORIA</span>
+</div>
+<div class="date">
+    <!-- Aqui você pode adicionar um campo de data, como um input type="date" ou um datepicker -->
+    <input type="date" name="Data Expiracao Vistoria" class="form-control" id="cliente-vans-0-vistoria"/>
+</div>
+
+  <script>
+    // Inicializando o Datepicker
+    $(document).ready(function() {
+      $("#data_vistoria").datepicker({
+        dateFormat: "yy-mm-dd" // Formato da data
+      });
+    });
+  </script>
+  
+            
+
+
+
+
+<!-- Mensagem de Validação -->
+<div id="teto-validation-message" class="validation-message"></div>
+<button type="button" class="next-step" id="next-step-1">PRÓXIMO</button>
+    </fieldset>
+
+
+    <fieldset id="last-fieldset">
+
+
+<div class="dadoscondutor">
+        <h4>DADOS DO CONDUTOR</h4>
+    </div>
+
+       <!-- Campo de Nome Completo do Responsável -->
+<div class="input text required">
+    <label for="nome-van">NOME COMPLETO DO RESPONSÁVEL (Físico ou Jurídico)</label>
+    <input type="text" name="Nome do  Condutor" id="nome-condutor" required="required" maxlength="45"/>
+</div>
+
+<!-- Campo de RG -->
+<div class="input text">
+    <label for="cliente-rg">RG</label>
+    <input type="text" name="RG" maxlength="10" id="cliente-rg"/>
+</div>
+
+<!-- Campo de CPF -->
+<div class="cpf">
+    <label for="cliente-vans-0-cliente-cpf-condutor" class="label label-default required">CPF</label>
+    <input type="text" name="cpf do Condutor" id="cliente-vans-0-cliente-cpf-condutor" placeholder="999.999.999-99" required="required" maxlength="45">
+    <span id="cpf-mensagem" style="display: block; font-size: 12px;"></span>
+</div>
+<div id="cpf-validation-message" class="validation-message"></div>
+
+<!--Campo de CNH-->
+<div class="input text required">
+    <label for="cliente-cnh-van">CNH</label>
+    <input type="text" name="CNH" id="cliente-cnh-condutor" placeholder="999999999999" required="required" maxlength="45"/>
+</div>
+
+
+<!-- Campo de E-mail -->
+<div class="input text required">
+    <label for="email">E-MAIL</label>
+    <input type="text" name="EMAIL" required="required" maxlength="45" id="email"/>
+</div>
+
+
+<!-- Campo de Telefone para Contato -->
+<div class="input text">
+    <label for="cliente-vans-0-telefone1-van">TELEFONE PARA CONTATO</label>
+    <input type="text" name="Telefone" id="cliente-vans-0-telefone1-condutor" maxlength="11" minlength="10" placeholder="(99)99999-9999"/>
+</div>
+
+<!-- Campo de Celular -->
+<div class="input text required">
+    <label for="cliente-vans-0-telefone2-van">CELULAR</label>
+    <input type="text" name="Celular" id="cliente-vans-0-telefone2-condutor" maxlength="11" minlength="10" placeholder="(99)99999-9999" required="required"/>
+</div>
+<div id="celular-validation-message" class="validation-message"></div>
+
+<!-- Campo de CEP -->
+<div class="input text required">
+    <label for="cliente-cep-van">CEP</label>
+    <input type="text" name="CEP" id="cliente-cep-condutor" placeholder="99999-999" required="required" maxlength="9"/>
+</div>
+<div id="cep-validation-message" class="validation-message"></div>
+
+
+<!-- Campo de Endereço -->
+<div class="input text required">
+    <label for="cliente-endereco">ENDEREÇO</label>
+    <input type="text" name="Endereço" required="required" maxlength="80" id="cliente-endereco"/>
+</div>
+
+<!-- Campo de Número -->
+<div class="input text required">
+    <label for="cliente-numero">NÚMERO</label>
+    <input type="text" name="Número" required="required" maxlength="10" id="cliente-numero"/>
+</div>
+
+<!-- Campo de Complemento -->
+<div class="input text">
+    <label for="cliente-complemento">COMPLEMENTO</label>
+    <input type="text" name="Complemento" maxlength="30" id="cliente-complemento"/>
+</div>
+
+<!-- Campo de Estado -->
+<div class="input text required">
+    <label for="cliente-uf">ESTADO</label>
+    <input type="text" name="Estado(UF)" style="text-transform:uppercase" required="required" maxlength="2" id="cliente-uf"/>
+</div>
+
+<!-- Campo de Cidade -->
+<div class="input text required">
+    <label for="cliente-municipio">CIDADE</label>
+    <input type="text" name="Cidade" required="required" maxlength="45" id="cliente-municipio"/>
+</div>
+
+<!-- Botão de Próximo -->
+<button type="button" class="prev-step" id="prev-step-2">VOLTAR</button>
+<button type="button" id="submit-form">ENVIAR</button>
+    </fieldset>
+
+
+    
+</div>
+
+
+
+
+
+
+<!-- Página para exibir os dados preenchidos -->
+<div id="summary" style="display:none;">
+    <h2>Resumo dos Dados Preenchidos</h2>
+    <p><strong>Nome de Apresentação:</strong> <span id="summary-veiculo"></span></p>
+    <p><strong>Marca:</strong> <span id="summary-fabricante"></span></p>
+    <p><strong>Modelo:</strong> <span id="summary-modelo"></span></p>
+    <p><strong>Tipo Teto:</strong> <span id="summary-teto"></span></p>
+    <p><strong>Ano de Fabricação</strong> <span id="summary-fabricação"></span></p>
+    <p><strong>Quantidade de Lugares</strong> <span id="summary-lugares"></span></p>
+    <p><strong>Possui Wi-Fi?</strong> <span id="summary-wifi"></span></p>
+    <p><strong>Possui TV?</strong> <span id="summary-tv"></span></p>
+    <p><strong>Possui Ar Condicionado?</strong> <span id="summary-ar"></span></p>
+    <p><strong>Placa:</strong> <span id="summary-placa"></span></p>
+    <p><strong>Numero da licença:</strong> <span id="summary-licenca"></span></p>
+    <p><strong>Data de Expiração da Vistoria</strong> <span id="summary-vistoria"></span></p>
+
+    <p><strong>Nome Completo do Responsável:</strong> <span id="summary-nome"></span></p>
+    <p><strong>RG:</strong> <span id="summary-rg"></span></p>
+    <p><strong>CPF:</strong> <span id="summary-cpf"></span></p>
+    <p><strong>CNH:</strong> <span id="summary-cnh"></span></p>
+    <p><strong>E-mail</strong> <span id="summary-email"></span></p>
+    <p><strong>Telefone Para Contato:</strong> <span id="summary-telefone"></span></p>
+    <p><strong>Celular</strong> <span id="summary-celular"></span></p>
+    <p><strong>CEP:</strong> <span id="summary-CEP"></span></p>
+    <p><strong>Endereço:</strong> <span id="summary-endereco"></span></p>
+    <p><strong>Número:</strong> <span id="summary-numeroendereco"></span></p>
+    <p><strong>Complemento:</strong> <span id="summary-Complemento"></span></p>
+    <p><strong>Estado:</strong> <span id="summary-estado"></span></p>
+    <p><strong>Cidade:</strong> <span id="summary-cidade"></span></p>
+
+   
+    <!-- Adicione mais campos conforme necessário -->
+</div>
+  
+
+<script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let currentStep = 0;
+            const fieldsets = document.querySelectorAll("form fieldset");
+            const nextButtons = document.querySelectorAll(".next-step");
+            const prevButtons = document.querySelectorAll(".prev-step");
+            const submitButton = document.getElementById("submit-form");
+            const summarySection = document.getElementById("summary");
+            const formInputs = document.querySelectorAll("input, select");
+
+            const modelosPorMarca = {
+                "AGRALE": ["AGRALE VOLARE", "AGRALE MA 8.7 ESCOLAR", "ESCOLAR"],
+                "CITROEN": ["CITROËN JUMPER MINIBUS ESCOLAR", "JUMPY", "MODELO Z"],
+                "FIAT": ["DUCATO MINIBUS", "DUCATO CARGO", "DUCATO"],
+                "FORD": ["TRANSIT ESCOLAR", "TRANSIT 17 LUGARES", "TRANSIT"],
+                "IVECO": ["IVECO DAILY MINIBUS ESCOLAR", "IVECO CITYCLASS"],
+                "JINBEI": ["JINBEI TOPIC ESCOLAR"],
+                "KIA": ["KIA BESTA GS GRAND ESCOLAR", "KIA K2500 ADAPTADA PARA TRANSPORTE ESCOLAR"],
+                "MERCEDES-BENZ": ["SPRINTER 15+1", "SPRINTER 17+1"],
+                "MARCOPOLO": ["MARCOPOLO SENIOR ESCOLAR", "MARCOPOLO VOLARE", "ESCOLAR"],
+                "PEUGEOT": ["BOXER MINIBUS ESCOLAR", "BOXER"],
+                "RENAULT": ["MASTER MINIBUS ESCOLAR", "MASTER FURGÃO", "MASTER"],
+                "VOLARE": ["VOLARE ATTACK 8 ESCOLAR", "VOLARE FLY 6 ESCOLAR", "VOLARE WL/MWL ESCOLAR", "VOLARE CINCO ESCOLAR"],
+                "VOLVO": ["VOLVO B270F ESCOLAR", "VOLVO B290R ESCOLAR", "VOLVO"],
+                "VOLKSWAGEN": ["KOMBI ESCOLAR", "CRAFTER MINIBUS"]
+            };
+
+            function showStep(index) {
+                fieldsets.forEach((fs, i) => {
+                    fs.style.display = i === index ? "block" : "none";
+                });
+            }
+
+            function validarApenasNumeros(valor) {
+                return /^\d+$/.test(valor);
+            }
+
+            function validarApenasLetras(valor) {
+                return /^[A-Za-zÀ-ú\s]+$/.test(valor);
+            }
+
+            function validarFormatoCPF(cpf) {
+                cpf = cpf.replace(/\D/g, '');
+                if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) return false;
+                let soma = 0;
+                for (let i = 0; i < 9; i++) soma += parseInt(cpf.charAt(i)) * (10 - i);
+                let resto = (soma * 10) % 11;
+                if (resto === 10 || resto === 11) resto = 0;
+                if (resto !== parseInt(cpf.charAt(9))) return false;
+                soma = 0;
+                for (let i = 0; i < 10; i++) soma += parseInt(cpf.charAt(i)) * (11 - i);
+                resto = (soma * 10) % 11;
+                if (resto === 10 || resto === 11) resto = 0;
+                return resto === parseInt(cpf.charAt(10));
+            }
+
+            function exibirMensagemCPF(valido) {
+                const cpfInput = document.getElementById('cliente-vans-0-cliente-cpf-condutor');
+                const mensagemErro = document.getElementById('cpf-mensagem');
+                if (valido) {
+                    cpfInput.style.border = "2px solid green";
+                    mensagemErro.textContent = "CPF válido.";
+                    mensagemErro.style.color = "green";
+                } else {
+                    cpfInput.style.border = "2px solid red";
+                    mensagemErro.textContent = "CPF inválido.";
+                    mensagemErro.style.color = "red";
+                }
+            }
+
+            const cpfInput = document.getElementById('cliente-vans-0-cliente-cpf-condutor');
+            if (cpfInput) {
+                cpfInput.addEventListener('input', function () {
+                    const cpf = cpfInput.value.trim();
+                    const cpfValido = validarFormatoCPF(cpf);
+                    exibirMensagemCPF(cpfValido);
+                });
+            }
+
+            async function validateFields(fieldset) {
+                let isValid = true;
+                const inputs = fieldset.querySelectorAll("input[required], select[required]");
+                for (const input of inputs) {
+                    const valor = input.value.trim();
+                    if (!valor) {
+                        input.style.border = "2px solid red";
+                        isValid = false;
+                        continue;
+                    }
+                    if (input.id === 'cliente-vans-0-ano' || input.id === 'cliente-vans-0-capacidade' || input.id === 'cliente-vans-0-stp-getax' || input.id === 'cliente-vans-0-cliente-rg' || input.id === 'cliente-vans-0-cliente-cpf-condutor' || input.id === 'cliente-vans-0-cliente-cnh-condutor' || input.id === 'cliente-vans-0-telefone1-condutor' || input.id === 'cliente-vans-0-telefone2-condutor' || input.id === 'cliente-cep-condutor' || input.id === 'cliente-numero') {
+                        if (!validarApenasNumeros(valor)) {
+                            input.style.border = "2px solid red";
+                            alert(`O campo ${input.name} deve conter apenas números.`);
+                            isValid = false;
+                            continue;
+                        }
+                    }
+                    if (input.id === 'cliente-vans-0-veiculo' || input.id === 'nome-condutor' || input.id === 'cliente-municipio' || input.id === 'cliente-uf') {
+                        if (!validarApenasLetras(valor)) {
+                            input.style.border = "2px solid red";
+                            alert(`O campo ${input.name} deve conter apenas letras.`);
+                            isValid = false;
+                            continue;
+                        }
+                    }
+                    if (input.id === 'cliente-vans-0-cliente-cpf-condutor' && !validarFormatoCPF(valor)) {
+                        input.style.border = "2px solid red";
+                        alert("CPF inválido. Por favor, insira um CPF válido.");
+                        isValid = false;
+                        continue;
+                    }
+                    input.style.border = "";
+                }
+                return isValid;
+            }
+
+            function saveFormData() {
+                const formData = {};
+                formInputs.forEach(input => {
+                    if (input.type === "radio" || input.type === "checkbox") {
+                        if (input.checked) formData[input.name] = input.value;
+                    } else {
+                        formData[input.id] = input.value;
+                    }
+                });
+                localStorage.setItem("formData", JSON.stringify(formData));
+            }
+
+            function loadFormData() {
+                const storedData = JSON.parse(localStorage.getItem("formData"));
+                if (storedData) {
+                    formInputs.forEach(input => {
+                        if (input.type === "radio" || input.type === "checkbox") {
+                            if (storedData[input.name] === input.value) input.checked = true;
+                        } else {
+                            input.value = storedData[input.id] || "";
+                        }
+                    });
+                    if (storedData['cliente-vans-0-FABRICANTE']) {
+                        atualizarModelos();
+                        document.getElementById('cliente-vans-0-MODELO').value = storedData['cliente-vans-0-MODELO'] || "";
+                    }
+                }
+            }
+
+            function atualizarModelos() {
+                const marcaSelecionada = document.getElementById('cliente-vans-0-FABRICANTE').value;
+                const modeloSelect = document.getElementById('cliente-vans-0-MODELO');
+                modeloSelect.innerHTML = '<option value="">Selecione um modelo</option>';
+                if (marcaSelecionada && modelosPorMarca[marcaSelecionada]) {
+                    modelosPorMarca[marcaSelecionada].forEach(modelo => {
+                        const option = document.createElement('option');
+                        option.value = modelo;
+                        option.textContent = modelo;
+                        modeloSelect.appendChild(option);
+                    });
+                }
+            }
+
+            nextButtons.forEach((btn, index) => {
+                btn.addEventListener("click", async function () {
+                    if (await validateFields(fieldsets[currentStep])) {
+                        currentStep++;
+                        showStep(currentStep);
+                    } else {
+                        alert("Por favor, preencha todos os campos obrigatórios antes de avançar.");
+                    }
+                });
+            });
+
+            prevButtons.forEach((btn) => {
+                btn.addEventListener("click", function () {
+                    currentStep--;
+                    showStep(currentStep);
+                });
+            });
+
+            showStep(currentStep);
+            loadFormData();
+
+            document.getElementById('cliente-vans-0-FABRICANTE').addEventListener('change', atualizarModelos);
+
+            submitButton.addEventListener("click", async function (event) {
+                event.preventDefault();
+                const isValid = await validateFields(fieldsets[currentStep]);
+                if (!isValid) return;
+                saveFormData();
+                alert("Dados salvos com sucesso!");
+
+                const storedData = JSON.parse(localStorage.getItem("formData"));
+                if (storedData) {
+                    let summaryHTML = `
+    <div class="summary-container">
+        <h3>DADOS DA VAN</h3>
+        <div class="summary-item"><strong>Veículo:</strong> ${storedData['cliente-vans-0-veiculo'] || ""}</div>
+        <div class="summary-item"><strong>Fabricante:</strong> ${storedData['cliente-vans-0-FABRICANTE'] || ""}</div>
+        <div class="summary-item"><strong>Modelo:</strong> ${storedData['cliente-vans-0-MODELO'] || ""}</div>
+        <div class="summary-item"><strong>Teto:</strong> ${storedData['cliente-vans-0-TETO'] || ""}</div>
+        <div class="summary-item"><strong>Ano de Fabricação:</strong> ${storedData['cliente-vans-0-ano'] || ""}</div>
+        <div class="summary-item"><strong>Capacidade:</strong> ${storedData['cliente-vans-0-capacidade'] || ""} lugares</div>
+        <div class="summary-item"><strong>Wi-Fi:</strong> ${storedData['cliente[vans][0][wifi]'] === '1' ? 'Sim' : 'Não'}</div>
+        <div class="summary-item"><strong>TV:</strong> ${storedData['cliente[vans][0][tv]'] === '1' ? 'Sim' : 'Não'}</div>
+        <div class="summary-item"><strong>Ar-Condicionado:</strong> ${storedData['cliente[vans][0][ar_condicionado]'] === '1' ? 'Sim' : 'Não'}</div>
+        <div class="summary-item"><strong>Placa:</strong> ${storedData['cliente-vans-0-placa'] || ""}</div>
+        <div class="summary-item"><strong>Licença STP:</strong> ${storedData['cliente-vans-0-stp-getax'] || ""}</div>
+        <div class="summary-item"><strong>Vistoria:</strong> ${storedData['cliente-vans-0-vistoria'] || ""}</div>
+        <h3>DADOS DO CONDUTOR</h3>
+        <div class="summary-item"><strong>Nome:</strong> ${storedData['nome-condutor'] || ""}</div>
+        <div class="summary-item"><strong>RG:</strong> ${storedData['cliente-rg'] || ""}</div>
+        <div class="summary-item"><strong>CPF:</strong> ${storedData['cliente-vans-0-cliente-cpf-condutor'] || ""}</div>
+        <div class="summary-item"><strong>CNH:</strong> ${storedData['cliente-cnh-condutor'] || ""}</div>
+        <div class="summary-item"><strong>Email:</strong> ${storedData['email'] || ""}</div>
+        <div class="summary-item"><strong>Telefone:</strong> ${storedData['cliente-vans-0-telefone1-condutor'] || ""}</div>
+        <div class="summary-item"><strong>Celular:</strong> ${storedData['cliente-vans-0-telefone2-condutor'] || ""}</div>
+        <div class="summary-item"><strong>CEP:</strong> ${storedData['cliente-cep-condutor'] || ""}</div>
+        <div class="summary-item"><strong>Endereço:</strong> ${storedData['cliente-endereco'] || ""}, ${storedData['cliente-numero'] || ""}</div>
+        <div class="summary-item"><strong>Complemento:</strong> ${storedData['cliente-complemento'] || ""}</div>
+        <div class="summary-item"><strong>Estado:</strong> ${storedData['cliente-uf'] || ""}</div>
+        <div class="summary-item"><strong>Cidade:</strong> ${storedData['cliente-municipio'] || ""}</div>
+        <button id="download-btn">Baixar Informações</button>
+    </div>
+`;
+                    summarySection.innerHTML = summaryHTML;
+                    summarySection.style.display = 'block';
+                }
+            });
+
+            // Função para gerar e baixar o PDF estilizado
+            function downloadStyledPDF() {
+                const storedData = JSON.parse(localStorage.getItem("formData"));
+
+                if (!storedData) {
+                    alert("Nenhum dado encontrado para gerar o PDF.");
+                    return;
+                }
+
+                // Criar um novo documento PDF
+                const doc = new jspdf.jsPDF();
+
+                // Adicionar conteúdo ao PDF
+                doc.setFontSize(18);
+                doc.text("Resumo dos Dados Preenchidos", 10, 10);
+
+                doc.setFontSize(12);
+                let y = 20; // Posição vertical inicial
+
+                // Dados da Van
+                doc.text("Dados da Van:", 10, y);
+                y += 10;
+                doc.text(`Veículo: ${storedData['cliente-vans-0-veiculo'] || ""}`, 10, y);
+                y += 10;
+                doc.text(`Fabricante: ${storedData['cliente-vans-0-FABRICANTE'] || ""}`, 10, y);
+                y += 10;
+                doc.text(`Modelo: ${storedData['cliente-vans-0-MODELO'] || ""}`, 10, y);
+                y += 10;
+                doc.text(`Teto: ${storedData['cliente-vans-0-TETO'] || ""}`, 10, y);
+                y += 10;
+                doc.text(`Ano de Fabricação: ${storedData['cliente-vans-0-ano'] || ""}`, 10, y);
+                y += 10;
+                doc.text(`Capacidade: ${storedData['cliente-vans-0-capacidade'] || ""} lugares`, 10, y);
+                y += 10;
+                doc.text(`Wi-Fi: ${storedData['cliente[vans][0][wifi]'] === '1' ? 'Sim' : 'Não'}`, 10, y);
+                y += 10;
+                doc.text(`TV: ${storedData['cliente[vans][0][tv]'] === '1' ? 'Sim' : 'Não'}`, 10, y);
+                y += 10;
+                doc.text(`Ar-Condicionado: ${storedData['cliente[vans][0][ar_condicionado]'] === '1' ? 'Sim' : 'Não'}`, 10, y);
+                y += 10;
+                doc.text(`Placa: ${storedData['cliente-vans-0-placa'] || ""}`, 10, y);
+                y += 10;
+                doc.text(`Licença STP: ${storedData['cliente-vans-0-stp-getax'] || ""}`, 10, y);
+                y += 10;
+                doc.text(`Vistoria: ${storedData['cliente-vans-0-vistoria'] || ""}`, 10, y);
+                y += 20;
+
+                // Dados do Condutor
+                doc.text("Dados do Condutor:", 10, y);
+                y += 10;
+                doc.text(`Nome: ${storedData['nome-condutor'] || ""}`, 10, y);
+                y += 10;
+                doc.text(`RG: ${storedData['cliente-rg'] || ""}`, 10, y);
+                y += 10;
+                doc.text(`CPF: ${storedData['cliente-vans-0-cliente-cpf-condutor'] || ""}`, 10, y);
+                y += 10;
+                doc.text(`CNH: ${storedData['cliente-cnh-condutor'] || ""}`, 10, y);
+                y += 10;
+                doc.text(`Email: ${storedData['email'] || ""}`, 10, y);
+                y += 10;
+                doc.text(`Telefone: ${storedData['cliente-vans-0-telefone1-condutor'] || ""}`, 10, y);
+                y += 10;
+                doc.text(`Celular: ${storedData['cliente-vans-0-telefone2-condutor'] || ""}`, 10, y);
+                y += 10;
+                doc.text(`CEP: ${storedData['cliente-cep-condutor'] || ""}`, 10, y);
+                y += 10;
+                doc.text(`Endereço: ${storedData['cliente-endereco'] || ""}, ${storedData['cliente-numero'] || ""}`, 10, y);
+                y += 10;
+                doc.text(`Complemento: ${storedData['cliente-complemento'] || ""}`, 10, y);
+                y += 10;
+                doc.text(`Estado: ${storedData['cliente-uf'] || ""}`, 10, y);
+                y += 10;
+                doc.text(`Cidade: ${storedData['cliente-municipio'] || ""}`, 10, y);
+
+               // Gerar o PDF como um Blob
+    const pdfBlob = doc.output('blob');
+
+// Criar um link temporário para o download
+const url = URL.createObjectURL(pdfBlob);
+const a = document.createElement('a');
+a.href = url;
+a.download = "resumo_formulario.pdf";
+document.body.appendChild(a);
+a.click();
+document.body.removeChild(a);
+URL.revokeObjectURL(url);
+            }
+
+            // Adicionar evento de clique ao botão de download
+            document.addEventListener('click', function (event) {
+                if (event.target && event.target.id === 'download-btn') {
+                    downloadStyledPDF();
+                }
+            });
+        });
+    </script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script><script src="/js/Site/signup.js"></script><script>
+    $(function() {
+        Signup.add();
+    })
+</script>    
+
+</section>
+
+    
+<footer>
+    <div class="row">
+
+        <section class="row" id="about">
+            <div class="col-md-12 text-center pagination-centered">
+                <ul class="list-inline col-md-4 col-lg-3 col-xs-12 col-sm-4">
+                  <li>
+                    <a href="quemsomos.html">QUEM SOMOS</a>
+                </li>|
+                
+                <li><a href="#">NOSSO OBJETIVO</a><span class="hover-text">Segurança nos transportes</span></li>|
+                <li><a href="#">DÚVIDAS?</a><span class="hover-text">11-940384489</span></li>|
+                <li><a href="#">CONTATO</a><span class="hover-text">11-940384489</span></li>
+                </ul>
+                <ul class="list-inline col-md-2 col-lg-1 col-xs-3 col-sm-2">
+                    <li>
+                        <a href="Atec.html">
+                            <img src="logo atec/logo 2 da tec(transparente).png" alt="Logo" class="img-responsive" id="about-logo"/>                            </a>
+                    </li>
+                </ul>
+                <ul class="list-inline col-md-4 col-lg-3 col-xs-12 col-sm-4">
+                    <li>
+                        <a href="login.html">TRANSPORTISTA</a>                        </li>
+                    |
+                    <li>
+                        <a href="Encontrarvan.html">ENCONTRE</a>                        </li>
+                    |
+                    <li>
+                      <a href="loginanexo.html">UP-ANEXOS</a></a>                        </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="social">
+            <ul class=" col-md-5">
+                <li>
+                    <p>Todos os direitos reservados (c) copyright <span itemprop="name">para ATEC</span></p>
+                </li>
+                <li>
+                    <p>Renan Pereira & Ryan Boriollo - Designers Gráfico</p>
+                </li>
+            </ul>
+            <ul class="list-inline col-md-6">
+                <li>
+                    <p> Nos acompanhe nas redes sociais:</p>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/atec_2024/" target="_blank">
+                        <i class="fa fa-instagram fa-1x footer-social-icon"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="        " target="_blank">
+                        <i class="fa fa-facebook fa-1x footer-social-icon"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="      " target="_blank">
+                        <i class="fa fa-twitter fa-1x footer-social-icon"></i>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </div>
+</footer>
+</body>
+
+</html>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        // Verifica se há algum input com a classe 'datetime'
+        if ($("input[type=text].datetime").length > 0) {
+            console.log($("input[type=text].datetime").attr("id"));
+            $("input[type=text].datetime").datetimepicker({
+                format: 'yyyy-mm-dd hh:ii'
+            });
+        }
+
+        // Verifica se há algum input com a classe 'date'
+        if ($("input[type=text].date").length > 0) {
+            $("input[type=text].date").mask('99/99/9999');
+        }
+        new WOW().init();
+    });
+</script>
+
+<script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-70803191-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+<script>
+    window.rwbp = {
+        email: 'associacaoatec@outlook.com',
+        phone: '5511940384489',
+        message: 'Olá, pais e responsáveis de alunos! Como nós, da ATEC podemos te ajudar?',
+        lang: 'pt-BR'
+    }
+</script>
+<script defer async src='https://duz4dqsaqembt.cloudfront.net/client/whats.js'></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WNYYX91S7X"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-WNYYX91S7X');
+</script>
+
+
+
+
+
+<!-- Incluindo jQuery e jQuery UI -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+

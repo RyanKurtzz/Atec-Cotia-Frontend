@@ -1,0 +1,430 @@
+/* Estilos Gerais */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #424242;
+}
+
+
+ /*navbar*/
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 100px; /* Ajuste o valor conforme necessário */
+    padding: 15px 20px 15px 40px; /* Aumente o padding à esquerda */
+    background:  #ececec;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+    height: 55px; /* Defina uma altura fixa para a navbar */
+    position: relative; /* Permite posicionar a logo de forma absoluta dentro da navbar */
+} 
+.navbar:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra mais intensa */
+} 
+.logo {
+    position: relative;
+    top: 30px; /* Ajuste o valor conforme necessário */
+    left: 12px; /* Ajuste o valor conforme necessário */
+}
+
+.logo img {
+    width: 150px; /* Ajuste o valor conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+    transition: transform 0.3s ease-in-out;
+}
+.logo img:hover {
+    transform: scale(1.1); /* Aumenta 10% ao passar o mouse */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+    transition: transform 0.3s ease-in-out;
+}
+.nav-links:hover {
+    transform: scale(1.1); /* Aumenta 10% ao passar o mouse */ 
+}
+.nav-links li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.nav-links a {
+    font-weight: bold;
+    color: #333;
+    transition: color 0.3s;
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    color: #cabd28;
+}
+
+.nav-button {
+    background: #cabd28;
+    color: #ffffff;
+    padding: 13px 17px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav-button:hover {
+    background: #d6c933;
+    transform: scale(1.1); /* Aumenta 10% ao passar o mouse */
+}
+
+/* Container Geral */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 17px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Formulário */
+form {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    top: -20px;
+    margin: 20px auto;
+}
+
+legend {
+    font-size: 1.5em;
+    font-weight: 800;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border 0.3s ease-in-out;
+}
+
+.form-control:focus {
+    border-color: #cabd28;
+    outline: none;
+}
+
+/* Botão */
+.btn1 {
+    background: #cabd28;
+    color: white;
+    padding: 12px;
+    max-width: 300px; /* Defina um valor menor, como 200px ou 250px */
+    width: 100%; /* Garante que o botão não ultrapasse a largura máxima */
+    font-size: 1.1em;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s ease-in-out, transform 0.2s;
+    align-self: flex-start; /* Move o botão para a esquerda */
+    display: block;
+    margin-bottom: 20px; /* Adiciona espaçamento entre as escolas */
+    margin: 20px auto;
+}
+
+.btn2 {
+    background: #cabd28;
+    color: white;
+    padding: 12px;
+    max-width: 300px; /* Defina um valor menor, como 200px ou 250px */
+    width: 100%; /* Garante que o botão não ultrapasse a largura máxima */
+    font-size: 1.1em;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s ease-in-out, transform 0.2s;
+    align-self: flex-start; /* Move o botão para a esquerda */
+    display: block;
+    margin-bottom: 20px; /* Adiciona espaçamento entre as escolas */
+    margin: 20px auto;
+}
+
+.btn1:hover {
+    background: #b9ae35;
+    transform: scale(1.05);
+}
+
+.btn2:hover {
+    background: #b9ae35;
+    transform: scale(1.05);
+}
+
+
+/* Ajuste Responsivo */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    form {
+        max-width: 90%;
+        padding: 20px;
+    }
+
+    .btn {
+        font-size: 1em;
+        padding: 10px;
+    }
+}
+
+
+/* Footer */
+footer {
+    background-color: #222;
+    color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+footer h4 {
+    font-size: 1.6em;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+footer h5 {
+    font-size: 1.2em;
+    color: #bbb;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer ul li {
+    display: inline;
+    margin: 10px 10px;
+    position: relative;
+}
+
+footer ul li .hover-text {
+    position: absolute;
+    bottom: 25px; /* Ajusta a distância abaixo do link */
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 0.9em;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: none; /* Escondido por padrão */
+    white-space: nowrap;
+}
+
+footer ul li:hover .hover-text {
+    display: block; /* Aparece ao passar o mouse */
+}
+footer ul li a {
+    color: #fff;
+    font-size: 1em;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer ul li a:hover {
+    color: rgb(197, 197, 8);
+}
+
+footer #about-logo {
+    max-width: 100px;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+footer #about-logo:hover {
+    transform: scale(1.1); /* Aumenta 10% ao passar o mouse */
+}
+
+
+footer #social ul {
+    margin-top: 20px;
+}
+
+footer #social ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+footer #social ul li a {
+    color: #fff;
+    font-size: 1.5em;
+}
+
+footer #social ul li a:hover {
+    color: rgb(197, 197, 8);
+}
+
+ /* Container da escola */
+ .school-list {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 30px;  /* Aumentei o padding para expandir o espaço interno */
+    order: 2; /* Garante que a lista fique abaixo do formulário */
+}
+
+
+/* Estilização do título */
+.title {
+    font-size: 28px; /* Aumentei o tamanho da fonte */
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    color: #333;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    margin-bottom: 25px; /* Aumentei o espaçamento inferior */
+}
+
+/* Espaçamento entre as escolas */
+.school-item {
+    padding: 25px; /* Aumentei o padding para expandir o espaço interno*/ 
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px; /* Adiciona espaçamento entre as escolas */
+    border-radius: 8px;
+    background: #f9f9f9;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.school-item:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Aumenta a sombra */
+}
+
+
+
+/* Remove a borda do último item */
+.school-item:last-child {
+    border-bottom: none;
+}
+
+/* Layout da escola */
+.school-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px; /* Aumentei o espaçamento inferior */
+}
+
+/* Estilização do nome da escola */
+.school-header h2 {
+    font-size: 24px; /* Aumentei o tamanho da fonte */
+    font-weight: 600;
+    color: #333;
+    margin-right: 15px; /* Aumentei o espaçamento à direita */
+    margin-bottom: 10px; /* Aumentei o espaçamento inferior */
+}
+
+/* Remove a linha azul dos links */
+.school-header a {
+    text-decoration: none;
+    color: inherit; /* Mantém a cor do texto padrão */
+    transition: transform 0,2s ease-in-out;
+}
+
+/* Aumenta o tamanho ao passar o mouse */
+.school-header a:hover {
+    transform: scale(1.1);
+}
+
+/* Estilização do badge (Municipal, Particular, etc.) */
+.badge {
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: #fff;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+/* Cores para cada tipo */
+.municipal {
+    background-color: #007BFF; /* Azul */
+}
+.particular {
+    background-color: #28A745; /* Verde */
+}
+.estadual {
+    background-color: #FFC107; /* Amarelo */
+    color: #333;
+}
+
+/* Localização da escola */
+.school-location {
+    font-size: 14px;
+    color: #555;
+    display: flex;
+    align-items: center;
+}
+  
+/* Responsividade */
+@media (max-width: 768px) {
+    .table thead {
+        display: none;
+    }
+    
+    .table, .table tbody, .table tr, .table td {
+        display: block;
+        width: 100%;
+    }
+    
+    .table tr {
+        margin-bottom: 10px;
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .table td {
+        text-align: left;
+        padding: 10px;
+        font-size: 16px;
+        position: relative;
+    }
+    
+    .table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        display: block;
+        text-transform: uppercase;
+        color: #2c3e50;
+    }
+}

@@ -1,0 +1,410 @@
+/* Estilos Gerais */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+
+
+ /*navbar*/
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 100px; /* Ajuste o valor conforme necessário */
+    padding: 15px 20px 15px 40px; /* Aumente o padding à esquerda */
+    background: #ecececc4;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+    height: 55px; /* Defina uma altura fixa para a navbar */
+    position: relative; /* Permite posicionar a logo de forma absoluta dentro da navbar */
+} 
+.navbar:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra mais intensa */
+} 
+.logo {
+    position: relative;
+    top: 30px; /* Ajuste o valor conforme necessário */
+    left: 12px; /* Ajuste o valor conforme necessário */
+}
+
+.logo img {
+    width: 150px; /* Ajuste o valor conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+    transition: transform 0.3s ease-in-out;
+}
+.logo img:hover {
+    transform: scale(1.1); /* Aumenta 10% ao passar o mouse */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+    transition: transform 0.3s ease-in-out;
+}
+.nav-links:hover {
+    transform: scale(1.1); /* Aumenta 10% ao passar o mouse */ 
+}
+.nav-links li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.nav-links a {
+    font-weight: bold;
+    color: #333;
+    transition: color 0.3s;
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    color: #cabd28;
+}
+
+.nav-links a.nav-button {
+    color: #fff; /* Cor do texto do botão */
+    background: #cabd28; /* Cor de fundo do botão */
+    padding: 13px 17px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: transform 0.3s ease-in-out;
+    text-decoration: none !important; /* Força a remoção da linha */
+}
+
+
+.nav-links a.nav-button:hover {
+    background: #d6c933; /* Cor de fundo ao passar o mouse */
+    color: #fff; /* Cor do texto ao passar o mouse */
+    transform: scale(1.1); /* Aumenta 10% ao passar o mouse */
+}
+
+.nav-button {
+    background: #cabd28;
+    color: #ffffff;
+    padding: 13px 17px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: transform 0.3s ease-in-out;
+    text-decoration: none !important; /* Força a remoção da linha */
+}
+
+.nav-button:hover {
+    background: #d6c933;
+    transform: scale(1.1); /* Aumenta 10% ao passar o mouse */
+    
+}
+
+/* Ajusta a Placa */
+.Placa {
+    width: 50%; /* Reduzindo o tamanho da placa */
+    max-width: 400px; /* Definir um tamanho máximo */
+    margin: 20px auto; /* Centraliza a placa */
+    padding: 10px;
+    text-align: center; /* Centraliza o conteúdo */
+    position: relative;
+    transition: background-color 0.3s ease-in-out; ;
+}
+.Placa:hover {
+    transform: scale(1.1); /* Aumenta 10% ao passar o mouse */
+}
+
+
+
+/* Header */
+header {
+    background: url('https://i.imgur.com/mqAQg3Z.jpeg') no-repeat center center;
+    background-size: cover;
+    padding: 50px 0; /* Ajuste conforme necessário */
+    text-align: center;
+}
+
+header .mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+header img {
+    max-width: 100%;
+    height: auto;
+} 
+
+
+/* Safe Child Section */
+#safe-child {
+    background: linear-gradient(135deg, #fde910, #f7c600); /* Gradiente sutil para um visual mais moderno */
+    color: #000;
+    padding: 30px 5%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#safe-child p {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+/* Service Section */
+#service {
+    padding: 60px 5%;
+    background-color: #f9f9f9;
+    text-align: center;
+    border-radius: 10px;
+}
+
+#service .row {
+    display: flex;
+    justify-content: space-between; /* Distribui igualmente o espaço entre os itens */
+    flex-wrap: wrap; /* Garante que os itens possam quebrar para a linha de baixo em telas menores */
+}
+
+#service .col-md-4 {
+    flex: 1 1 30%; /* Garante que cada item ocupe 30% do espaço disponível (ajustando para 3 itens lado a lado) */
+    padding: 30px;
+    box-sizing: border-box; /* Para garantir que o padding não sobreponha o conteúdo */
+}
+
+#service i {
+    color: #ffcc00;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+#service i:hover {
+    transform: scale(1.1); /* Aumenta 10% ao passar o mouse */
+}
+
+#service h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+#service p {
+    font-size: 1em;
+    color: #666;
+}
+
+#service .btn-success {
+    background-color: #007bff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    color: #fff;
+    font-size: 1em;
+    text-decoration: none;
+    transition: transform 0.3s ease-in-out;
+}
+
+#service .btn-success:hover {
+    background-color: #003d80;
+    transform: scale(1.1); /* Aumenta 10% ao passar o mouse */
+}
+
+/* Responsividade - Ajusta para telas pequenas */
+@media (max-width: 768px) {
+    #service .col-md-4 {
+        flex: 1 1 100%; /* Em telas pequenas, os itens ocupam 100% da largura */
+        margin-bottom: 20px; /* Adiciona espaçamento entre as colunas */
+    }
+}
+
+
+/* Driver Section */
+/* Seção de Motoristas */
+#driver {
+    padding: 10px 5%;
+    background-color: #3d3b3a;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#driver h3 {
+    font-size: clamp(1.8em, 2vw, 2.2em);
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+#driver p {
+    font-size: clamp(1em, 1.2vw, 1.2em);
+    color: #ffffff;
+    max-width: 600px;
+    margin: 0 auto 20px;
+    line-height: 1.6;
+}
+
+#driver .btn {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: #ffffff;
+    padding: 12px 24px;
+    font-size: 1em;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.3s ease-in-out;
+}
+
+#driver .btn:hover {
+    background: linear-gradient(135deg, #0056b3, #003d80);
+    transform: scale(1.1); /* Aumenta 10% ao passar o mouse */
+}
+
+#driver img {
+    max-width: 15%;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 10px; 
+}
+
+/* Seção de Pais */
+#parent {
+    padding: 30px 5%;
+    background-color: #8a8887;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#parent h3 {
+    font-size: clamp(1.8em, 2vw, 2.2em);
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+#parent p {
+    font-size: clamp(1em, 1.2vw, 1.2em);
+    color: #ffffff;
+    max-width: 600px;
+    margin: 0 auto 20px;
+    line-height: 1.6;
+}
+
+#parent .btn {
+    background: linear-gradient(135deg, #007bff, #1d63ad);
+    color: #fff;
+    padding: 12px 24px;
+    font-size: 1em;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+#parent .btn:hover {
+    background: linear-gradient(135deg, #1d63ad, #003d80);
+    transform: scale(1.05);
+}
+
+#parent img {
+    max-width: 20%;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+
+
+/* Footer */
+footer {
+    background-color: #222;
+    color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+footer h4 {
+    font-size: 1.6em;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+footer h5 {
+    font-size: 1.2em;
+    color: #bbb;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer ul li {
+    display: inline;
+    margin: 10px 10px;
+    position: relative;
+}
+
+footer ul li .hover-text {
+    position: absolute;
+    bottom: 25px; /* Ajusta a distância abaixo do link */
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 0.9em;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: none; /* Escondido por padrão */
+    white-space: nowrap;
+}
+
+footer ul li:hover .hover-text {
+    display: block; /* Aparece ao passar o mouse */
+}
+footer ul li a {
+    color: #fff;
+    font-size: 1em;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer ul li a:hover {
+    color: rgb(197, 197, 8);
+}
+
+footer #about-logo {
+    max-width: 100px;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+footer #about-logo:hover {
+    transform: scale(1.1); /* Aumenta 10% ao passar o mouse */
+}
+
+
+footer #social ul {
+    margin-top: 20px;
+}
+
+footer #social ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+footer #social ul li a {
+    color: #fff;
+    font-size: 1.5em;
+}
+
+footer #social ul li a:hover {
+    color: rgb(197, 197, 8);
+}
+

@@ -1,0 +1,267 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #424242;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: var(--text-color);
+}
+
+
+ /*navbar*/
+ .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 100px; /* Ajuste o valor conforme necessário */
+    padding: 15px 20px 15px 40px; /* Aumente o padding à esquerda */
+    background:  #ececec;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+    height: 55px; /* Defina uma altura fixa para a navbar */
+    z-index: 1000;
+    position: relative; /* Permite posicionar a logo de forma absoluta dentro da navbar */
+} 
+
+.navbar:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra mais intensa */
+} 
+.logo {
+    position: relative;
+    top: 30px; /* Ajuste o valor conforme necessário */
+    left: 12px; /* Ajuste o valor conforme necessário */
+}
+
+.logo img {
+    width: 150px; /* Ajuste o valor conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+    transition: transform 0.3s ease-in-out;
+}
+.logo img:hover {
+    transform: scale(1.1); /* Aumenta 10% ao passar o mouse */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+    transition: transform 0.3s ease-in-out;
+}
+.nav-links:hover {
+    transform: scale(1.1); /* Aumenta 10% ao passar o mouse */ 
+}
+.nav-links li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.nav-links a {
+    font-weight: bold;
+    color: #333;
+    transition: color 0.3s;
+    text-decoration: none !important; /* Força a remoção da linha */
+}
+
+.nav-links a:hover {
+    color: #cabd28;
+}
+
+:root {
+    --primary-color: #c7b80f; /* Cor para os títulos */
+    --background-light: #ffffff; /* Fundo branco */
+    --text-color: #333; /* Cor do texto */
+    --shadow-color: rgba(0, 0, 0, 0.1); /* Cor da sombra */
+    --divider-color: #e0e0e0; /* Cor da linha divisória */
+}
+
+.container {
+    background-color: var(--background-light);
+    width: 40%;
+    min-width: 450px;
+    max-width: 40%;
+    margin: 60px auto;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+/* Cabeçalho */
+.header {
+    background: var(--primary-color);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* Linha divisória */
+.divider {
+    height: 2px;
+    background-color: var(--divider-color);
+    margin: 20px 0;
+}
+
+/* Seções */
+.section {
+    margin: 20px 0;
+    padding: 15px;
+}
+
+.section h2 {
+    background: var(--primary-color);
+    color: white;
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px var(--shadow-color);
+    margin: 0;
+    font-weight: bold;
+}
+
+.section h2:hover {
+    transform: scale(1.05);
+}
+
+/* Galeria de Logos */
+.logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+    padding: 25px;
+}
+
+.logos img {
+    width: 200px;
+    height: auto;
+    max-height: 90px;
+    filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.2));
+    transition: transform 0.3s ease-in-out;
+}
+
+.logos img:hover {
+    transform: scale(1.1);
+}
+
+.logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.logo-item {
+    text-align: center;
+}
+
+
+.logo-item p {
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+/* Ícone de site (globo) */
+.logo-item i {
+    color: #007BFF; /* Azul padrão para links */
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+
+/* Footer */
+footer {
+    background-color: #222;
+    color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+footer h4 {
+    font-size: 1.6em;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+footer h5 {
+    font-size: 1.2em;
+    color: #bbb;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer ul li {
+    display: inline;
+    margin: 10px 10px;
+    position: relative;
+}
+
+footer ul li .hover-text {
+    position: absolute;
+    bottom: 25px; /* Ajusta a distância abaixo do link */
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 0.9em;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: none; /* Escondido por padrão */
+    white-space: nowrap;
+}
+
+footer ul li:hover .hover-text {
+    display: block; /* Aparece ao passar o mouse */
+}
+footer ul li a {
+    color: #fff;
+    font-size: 1em;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer ul li a:hover {
+    color: rgb(197, 197, 8);
+}
+
+footer #about-logo {
+    max-width: 100px;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+footer #about-logo:hover {
+    transform: scale(1.1); /* Aumenta 10% ao passar o mouse */
+}
+
+
+footer #social ul {
+    margin-top: 20px;
+}
+
+footer #social ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+footer #social ul li a {
+    color: #fff;
+    font-size: 1.5em;
+}
+
+footer #social ul li a:hover {
+    color: rgb(197, 197, 8);
+}
+

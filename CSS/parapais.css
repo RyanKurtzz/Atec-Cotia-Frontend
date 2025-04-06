@@ -1,0 +1,363 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #333;
+}
+/*navbar*/
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 100px; /* Ajuste o valor conforme necessário */
+    padding: 15px 20px 15px 40px; /* Aumente o padding à esquerda */
+    background: #ecececc4;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+    height: 55px; /* Defina uma altura fixa para a navbar */
+    position: relative; /* Permite posicionar a logo de forma absoluta dentro da navbar */
+} 
+.navbar:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra mais intensa */
+} 
+.logo {
+    position: relative;
+    top: 30px; /* Ajuste o valor conforme necessário */
+    left: 12px; /* Ajuste o valor conforme necessário */
+}
+
+.logo img {
+    width: 150px; /* Ajuste o valor conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+    transition: transform 0.3s ease-in-out;
+}
+.logo img:hover {
+    transform: scale(1.1); /* Aumenta 10% ao passar o mouse */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+    transition: transform 0.3s ease-in-out;
+}
+.nav-links:hover {
+    transform: scale(1.1); /* Aumenta 10% ao passar o mouse */ 
+}
+.nav-links li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.nav-links a {
+    font-weight: bold;
+    color: #333;
+    transition: color 0.3s;
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    color: #cabd28;
+}
+
+.nav-links a.nav-button {
+    color: #fff; /* Cor do texto do botão */
+    background: #cabd28; /* Cor de fundo do botão */
+    padding: 13px 17px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: transform 0.3s ease-in-out;
+    text-decoration: none !important; /* Força a remoção da linha */
+}
+
+
+.nav-links a.nav-button:hover {
+    background: #d6c933; /* Cor de fundo ao passar o mouse */
+    color: #fff; /* Cor do texto ao passar o mouse */
+    transform: scale(1.1); /* Aumenta 10% ao passar o mouse */
+}
+
+.nav-button {
+    background: #cabd28;
+    color: #ffffff;
+    padding: 13px 17px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: transform 0.3s ease-in-out;
+    text-decoration: none !important; /* Força a remoção da linha */
+}
+
+.nav-button:hover {
+    background: #d6c933;
+    transform: scale(1.1); /* Aumenta 10% ao passar o mouse */
+    
+}
+
+/* Header */
+header {
+    background: #cabd28;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    background: url('parede\ amarela\ escura.png') no-repeat center center/cover;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+header p {
+    font-size: 1.2rem;
+}
+
+/* Navigation */
+nav {
+    background: #333;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.1rem;
+}
+
+nav a:hover {
+    color: #dadd21;
+}
+
+/* Main Content */
+.hero {
+    background: url('parede\ cinza\ e\ amarela.png') no-repeat center center/cover;
+    color: #fff;
+    background-color: #0056b3;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+ 
+}
+
+.hero .btn {
+    background: #cabd28;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+}
+
+.hero .btn:hover {
+    background: #9e9106;
+}
+
+.about, .services, .contact {
+    padding: 50px 20px;
+    background-color: #333;
+    text-align: center;
+}
+.services{
+    background-color: #c0c0c0;
+}
+
+.about{
+    background: url('parede\ preta.png') no-repeat center center/cover;
+}
+
+
+.about h2, .services h2, .contact h2 {
+    font-size: 2rem;
+    color: #fff;
+    
+    margin-bottom: 20px;
+}
+
+.about p, .services p, .contact p {
+    font-size: 1.1rem;
+    max-width: 800px;
+    color: #fff;
+    margin: 0 auto 20px;
+}
+
+.services p{
+background-color: #cabd28;
+}
+
+.services .service-item {
+    background: url('https://via.placeholder.com/1500x600') no-repeat center center/cover;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.services .service-item div {
+    background: #fff;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    min-width: 250px;
+}
+
+.services .service-item h3 {
+    font-size: 1.5rem;
+    color:#3f3f3e ;
+    margin-bottom: 10px;
+}
+.services p{
+    color: #000000;
+}
+
+/*criei h1 para conseguir alterar a cor do texto de "nossos serviços"*/
+.services h1{
+    color: #fff;
+    background-color: #cabd28;
+}
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #c0c0c0;
+    justify-content: center;
+    padding: 10px;
+
+}
+
+.gallery h2{
+    color: #000000;
+    background: url('parede\ cinza\ e\ amarela.png') no-repeat center center/cover;
+    border-radius: 7px;
+    padding: 5px 10px; /* Adicionei padding ao h2 para melhorar a aparência */
+    margin-bottom: 5px; /* Espaço abaixo do título */
+    
+}
+
+.gallery img {
+    margin: 10px;
+    border-radius: 8px;
+    width: 350px;
+    height: 250px;
+    object-fit: cover;
+}
+
+/* Footer */
+footer {
+    background-color: #222;
+    color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+footer h4 {
+    font-size: 1.6em;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+footer h5 {
+    font-size: 1.2em;
+    color: #bbb;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer ul li {
+    display: inline;
+    margin: 10px 10px;
+    position: relative;
+}
+
+footer ul li .hover-text {
+    position: absolute;
+    bottom: 25px; /* Ajusta a distância abaixo do link */
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 0.9em;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: none; /* Escondido por padrão */
+    white-space: nowrap;
+}
+
+footer ul li:hover .hover-text {
+    display: block; /* Aparece ao passar o mouse */
+}
+footer ul li a {
+    color: #fff;
+    font-size: 1em;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer ul li a:hover {
+    color: rgb(197, 197, 8);
+}
+
+footer #about-logo {
+    max-width: 100px;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+footer #about-logo:hover {
+    transform: scale(1.1); /* Aumenta 10% ao passar o mouse */
+}
+
+
+footer #social ul {
+    margin-top: 20px;
+}
+
+footer #social ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+footer #social ul li a {
+    color: #fff;
+    font-size: 1.5em;
+}
+
+footer #social ul li a:hover {
+    color: rgb(197, 197, 8);
+}
+
+ /* Responsividade */
+ @media (max-width: 768px) {
+    .services .service-item div {
+        width: 100%;
+    }
+
+    .gallery img {
+        width: 100%;
+        height: auto;
+    }
+}
